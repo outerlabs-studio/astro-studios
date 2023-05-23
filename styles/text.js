@@ -16,6 +16,7 @@ export const TitleHeader = styled.h1`
   letter-spacing: -2%;
   line-height: 100%;
   font-kerning: none;
+  margin: ${({ nm, m }) => (nm ? 0 : m ? m : 'unset')};
 `
 export const TitleSubheader = styled.h2`
   font-family: var(--font-title);
@@ -23,6 +24,7 @@ export const TitleSubheader = styled.h2`
   font-weight: 500;
   letter-spacing: -2%;
   line-height: 100%;
+  margin: ${({ nm, m }) => (nm ? 0 : m ? m : 'unset')};
 `
 export const TitleSubtile = styled.h2`
   font-family: var(--font-title);
@@ -30,18 +32,25 @@ export const TitleSubtile = styled.h2`
   font-weight: 500;
   letter-spacing: -2%;
   line-height: 88.3%;
+  margin: ${({ nm, m }) => (nm ? 0 : m ? m : 'unset')};
 `
 export const ArticleSubtitle = styled.h3`
   font-family: var(--font-text);
   font-size: 20px; // 20px
   font-weight: 700;
   line-height: 118%;
+  margin: ${({ nm, m }) => (nm ? 0 : m ? m : 'unset')};
+
+  span {
+    color: var(--orange);
+  }
 `
 export const ArticleBase = styled.p`
   font-family: var(--font-text);
   font-size: 18px;
   font-weight: 400;
   line-height: 130%;
+  margin: ${({ nm, m }) => (nm ? 0 : m ? m : 'unset')};
 `
 export const ArticleBody = styled(ArticleBase)`
   font-size: 16px;

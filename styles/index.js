@@ -11,3 +11,4 @@ export {
   ArticleBase,
   ArticleBody,
 } from './text'
+export { default as Z } from './z'

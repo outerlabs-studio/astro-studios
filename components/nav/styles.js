@@ -1,9 +1,9 @@
 import styled from 'styled-components'
-import { Logo, media } from 'styles'
+import { Logo, Z, media } from 'styles'
 
 export const PageHeader = styled.header`
   position: fixed;
-  z-index: 999;
+  z-index: ${Z.PAGE_HEADER};
   width: 100%;
   padding-bottom: 5vw;
 `
@@ -22,11 +22,12 @@ export const InvisWrapper = styled.div`
   width: 100%;
   height: calc(100vh - 2vw);
   margin-top: 2vw;
-  z-index: 2;
+  z-index: ${Z.INVIS_WRAPPER};
 `
 export const LogoWrapper = styled.div`
   position: relative;
   height: inherit;
+  z-index: ${Z.LOGO};
 `
 export const MainLogo = styled(Logo)`
   position: absolute;
@@ -41,7 +42,6 @@ export const NavLinks = styled.ul`
   list-style: none;
   padding: 0;
   margin: 0;
-  z-index: 2;
 
   li:last-child {
     margin-left: 16px;

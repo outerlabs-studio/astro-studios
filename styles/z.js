@@ -1,0 +1,11 @@
+const Z = {
+  PAGE_HEADER: 999,
+  LOGO: 5,
+  INVIS_WRAPPER: 4,
+  NORMAL_SECTION: 4,
+  UNDER_BEAR_SECTION: 2,
+  STICKY_BEAR: 2,
+  TEXT: 1,
+}
+
+export default Z

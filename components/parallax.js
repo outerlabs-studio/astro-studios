@@ -19,6 +19,7 @@ export default function Parallax({
   speed = 1,
   id = 'parallax',
   position,
+  direction = 'vertical',
   trigger = useRef(),
 }) {
   const target = useRef()
@@ -27,6 +28,7 @@ export default function Parallax({
 
   useEffect(() => {
     const y = windowWidth * speed * 0.1
+    const x = windowWidth * speed * 0.1
     const mm = gsap.matchMedia()
 
     timeline.current = gsap
@@ -41,8 +43,12 @@ export default function Parallax({
       })
       .fromTo(
         target.current,
-        { y: position === 'top' ? 0 : -y },
-        { y: y, ease: 'none' }
+        direction === 'vertical'
+          ? { y: position === 'top' ? 0 : -y }
+          : { x: position === 'top' ? 0 : -x },
+        direction === 'vertical'
+          ? { y: y, ease: 'none' }
+          : { x: x, ease: 'none' }
       )
 
     mm.add(
@@ -64,5 +70,5 @@ export default function Parallax({
     }
   }, [id, speed, position, windowWidth, target])
 
-  return <div>{cloneElement(children, { ref: target })}</div>
+  return <>{cloneElement(children, { ref: target })}</>
 }

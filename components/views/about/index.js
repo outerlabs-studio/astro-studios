@@ -16,10 +16,37 @@ import { useWindowSize } from 'hooks'
 const About = () => {
   let trigger = useRef()
   let timeline = useRef()
+  let imageRef = useRef([])
   const { width: windowWidth } = useWindowSize()
 
+  useEffect(() => {
+    let tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: trigger.current,
+        scrub: true,
+        start: 'center top',
+        end: 'bottom center',
+      },
+    })
+
+    let changeBg = gsap.utils.toArray('#change-bg')
+
+    changeBg.forEach((el) => {
+      tl.fromTo(
+        el,
+        { backgroundColor: 'rgb(251, 251, 251)' },
+        { backgroundColor: 'rgb(1, 20, 223)' },
+        0
+      )
+    })
+
+    imageRef.current.forEach((image) => {
+      tl.to(image, { opacity: 0 }, 0)
+    })
+  }, [])
+
   return (
-    <SectionWrapper ref={trigger}>
+    <SectionWrapper id="change-bg" ref={trigger}>
       <Container>
         <TextWrapper>
           <TitleHeader className="about-text">
@@ -27,7 +54,7 @@ const About = () => {
             comfort you and making them available when you need them the most
           </TitleHeader>
         </TextWrapper>
-        <FirstImage>
+        <FirstImage ref={(el) => (imageRef.current[0] = el)}>
           <Parallax speed={-1.5} trigger={trigger}>
             <Image
               src="/images/blue.png"
@@ -37,7 +64,7 @@ const About = () => {
             />
           </Parallax>
         </FirstImage>
-        <SecondImage>
+        <SecondImage ref={(el) => (imageRef.current[1] = el)}>
           <Parallax speed={0.5} trigger={trigger}>
             <Image
               src="/images/red.png"
@@ -47,7 +74,7 @@ const About = () => {
             />
           </Parallax>
         </SecondImage>
-        <ThirdImage>
+        <ThirdImage ref={(el) => (imageRef.current[2] = el)}>
           <Parallax speed={-1.5} trigger={trigger}>
             <Image
               src="/images/purple.png"
@@ -57,7 +84,7 @@ const About = () => {
             />
           </Parallax>
         </ThirdImage>
-        <FourthImage>
+        <FourthImage ref={(el) => (imageRef.current[3] = el)}>
           <Parallax speed={-1} trigger={trigger}>
             <Image
               src="/images/pink.png"

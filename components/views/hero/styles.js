@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Z } from 'styles'
 
 export const SectionWrapper = styled.section`
   width: 100vw;
@@ -7,6 +8,7 @@ export const SectionWrapper = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  z-index: ${Z.NORMAL_SECTION};
 `
 export const ScrollWrapper = styled.div`
   position: absolute;
