@@ -18,6 +18,18 @@ const FloatingBear = styled.div`
 const Bear = () => {
   let bearRef = useRef()
 
+  useEffect(() => {
+    gsap.to(bearRef.current, {
+      rotation: 360,
+      scrollTrigger: {
+        trigger: '#info-section',
+        scrub: true,
+        start: 'top bottom',
+        end: 'bottom bottom',
+      },
+    })
+  }, [])
+
   return (
     <FloatingBear ref={bearRef}>
       <Image src="/images/bear.png" alt="astro bear" quality={90} fill />
