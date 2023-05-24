@@ -16,8 +16,11 @@ export const RowWrapper = styled.div`
   width: 100%;
   z-index: ${Z.TEXT};
   align-items: center;
-  margin-top: 1vw;
   overflow: hidden;
+  // The following two lines helps remove white space
+  margin-top: -1vw;
+  margin-left: -1.5%;
+  width: 102%;
   justify-content: ${(props) =>
     props.reverse
       ? 'flex-end'
@@ -31,8 +34,8 @@ export const RowText = styled(TitleHeader)`
   white-space: nowrap;
   margin-top: 0;
   margin-bottom: 0;
-  margin-left: ${({ ml }) => (ml ? ml : 0)};
-  margin-right: ${({ mr }) => (mr ? mr : 0)};
+  margin-left: ${({ ml }) => (ml ? ml : 0)}!important;
+  margin-right: ${({ mr }) => (mr ? mr : 0)}!important;
 `
 export const ParagraphWrapper = styled.div`
   max-width: 20rem;

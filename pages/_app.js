@@ -8,7 +8,7 @@ import { RealViewport } from 'lib'
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger)
-  ScrollTrigger.defaults({ markers: process.env.NODE_ENV === 'development' })
+  // ScrollTrigger.defaults({ markers: process.env.NODE_ENV === 'development' })
 
   // merge rafs
   gsap.ticker.lagSmoothing(0)

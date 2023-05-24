@@ -7,24 +7,23 @@ import {
   SectionWrapper,
 } from './style'
 import { gsap } from 'gsap'
-import { useLayoutEffect, useRef } from 'react'
+import { useEffect, useRef } from 'react'
 
 const InfoSection = () => {
   let sectionRef = useRef()
   let itemsRef = useRef([])
   const comp = useRef()
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     let ctx = gsap.context(() => {
-      let anim = { opacity: 0, yPercent: 50 }
-
       itemsRef.current.forEach((item, i) => {
         gsap.from(item, {
-          ...anim,
+          opacity: 0,
+          yPercent: item.id === 'break-line' ? -100 : 50,
           scrollTrigger: {
             trigger: item,
-            start: 'top+=10% bottom',
-            end: 'bottom bottom',
+            start: 'top bottom',
+            end: item.id === 'break-line' ? '+=1000' : '+=500',
             scrub: true,
           },
         })
@@ -47,15 +46,20 @@ const InfoSection = () => {
   return (
     <SectionWrapper ref={sectionRef} id="change-bg">
       <Container fluid>
-        <ItemWrapper ref={(el) => (itemsRef.current[0] = el)}>
+        <ItemWrapper>
           <RowWrapper>
-            <TitleSubheader nm>growth</TitleSubheader>
+            <TitleSubheader nm ref={(el) => (itemsRef.current[0] = el)}>
+              growth
+            </TitleSubheader>
             <InformationWrapper>
-              <ArticleSubtitle m={'0 0 2rem 0'}>
+              <ArticleSubtitle
+                m={'0 0 2rem 0'}
+                ref={(el) => (itemsRef.current[1] = el)}
+              >
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore.
               </ArticleSubtitle>
-              <ArticleBody nm>
+              <ArticleBody nm ref={(el) => (itemsRef.current[2] = el)}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
                 enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -63,17 +67,22 @@ const InfoSection = () => {
               </ArticleBody>
             </InformationWrapper>
           </RowWrapper>
-          <Line />
+          <Line id="break-line" ref={(el) => (itemsRef.current[3] = el)} />
         </ItemWrapper>
-        <ItemWrapper ref={(el) => (itemsRef.current[1] = el)}>
+        <ItemWrapper>
           <RowWrapper>
-            <TitleSubheader nm>people</TitleSubheader>
+            <TitleSubheader nm ref={(el) => (itemsRef.current[4] = el)}>
+              people
+            </TitleSubheader>
             <InformationWrapper>
-              <ArticleSubtitle m={'0 0 2rem 0'}>
+              <ArticleSubtitle
+                m={'0 0 2rem 0'}
+                ref={(el) => (itemsRef.current[5] = el)}
+              >
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore.
               </ArticleSubtitle>
-              <ArticleBody nm>
+              <ArticleBody nm ref={(el) => (itemsRef.current[6] = el)}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
                 enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -81,17 +90,22 @@ const InfoSection = () => {
               </ArticleBody>
             </InformationWrapper>
           </RowWrapper>
-          <Line />
+          <Line id="break-line" ref={(el) => (itemsRef.current[7] = el)} />
         </ItemWrapper>
-        <ItemWrapper ref={(el) => (itemsRef.current[2] = el)}>
+        <ItemWrapper>
           <RowWrapper>
-            <TitleSubheader nm>comfort</TitleSubheader>
+            <TitleSubheader nm ref={(el) => (itemsRef.current[8] = el)}>
+              comfort
+            </TitleSubheader>
             <InformationWrapper>
-              <ArticleSubtitle m={'0 0 2rem 0'}>
+              <ArticleSubtitle
+                m={'0 0 2rem 0'}
+                ref={(el) => (itemsRef.current[9] = el)}
+              >
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore.
               </ArticleSubtitle>
-              <ArticleBody nm>
+              <ArticleBody nm ref={(el) => (itemsRef.current[10] = el)}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
                 enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -99,17 +113,22 @@ const InfoSection = () => {
               </ArticleBody>
             </InformationWrapper>
           </RowWrapper>
-          <Line />
+          <Line id="break-line" ref={(el) => (itemsRef.current[11] = el)} />
         </ItemWrapper>
-        <ItemWrapper ref={(el) => (itemsRef.current[3] = el)}>
+        <ItemWrapper>
           <RowWrapper>
-            <TitleSubheader nm>authentic</TitleSubheader>
+            <TitleSubheader nm ref={(el) => (itemsRef.current[12] = el)}>
+              authentic
+            </TitleSubheader>
             <InformationWrapper>
-              <ArticleSubtitle m={'0 0 2rem 0'}>
+              <ArticleSubtitle
+                m={'0 0 2rem 0'}
+                ref={(el) => (itemsRef.current[13] = el)}
+              >
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore.
               </ArticleSubtitle>
-              <ArticleBody nm>
+              <ArticleBody nm ref={(el) => (itemsRef.current[14] = el)}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
                 enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -117,17 +136,22 @@ const InfoSection = () => {
               </ArticleBody>
             </InformationWrapper>
           </RowWrapper>
-          <Line />
+          <Line id="break-line" ref={(el) => (itemsRef.current[15] = el)} />
         </ItemWrapper>
-        <ItemWrapper ref={(el) => (itemsRef.current[4] = el)}>
+        <ItemWrapper>
           <RowWrapper>
-            <TitleSubheader nm>innovative</TitleSubheader>
+            <TitleSubheader nm ref={(el) => (itemsRef.current[16] = el)}>
+              innovative
+            </TitleSubheader>
             <InformationWrapper>
-              <ArticleSubtitle m={'0 0 2rem 0'}>
+              <ArticleSubtitle
+                m={'0 0 2rem 0'}
+                ref={(el) => (itemsRef.current[17] = el)}
+              >
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore.
               </ArticleSubtitle>
-              <ArticleBody nm>
+              <ArticleBody nm ref={(el) => (itemsRef.current[18] = el)}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
                 enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -135,7 +159,7 @@ const InfoSection = () => {
               </ArticleBody>
             </InformationWrapper>
           </RowWrapper>
-          <Line />
+          <Line id="break-line" ref={(el) => (itemsRef.current[19] = el)} />
         </ItemWrapper>
       </Container>
     </SectionWrapper>

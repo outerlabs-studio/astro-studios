@@ -7,6 +7,7 @@ import {
   InfoSection,
   ScrollerSection,
   SmallInfoSection,
+  TeamSection,
 } from 'components/views'
 import Nav from 'components/nav'
 // import { useMediaQuery } from 'lib'
@@ -26,6 +27,7 @@ function Home() {
         <ScrollerSection />
       </div>
       <SmallInfoSection />
+      <TeamSection />
       <h2>Some example content</h2>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod

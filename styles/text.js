@@ -14,7 +14,7 @@ export const TitleHeader = styled.h1`
   font-size: 9vw; // 128px
   font-weight: 500;
   letter-spacing: -2%;
-  line-height: 100%;
+  line-height: 1.2;
   font-kerning: none;
   margin: ${({ nm, m }) => (nm ? 0 : m ? m : 'unset')};
 `
@@ -28,7 +28,7 @@ export const TitleSubheader = styled.h2`
 `
 export const TitleSubtile = styled.h2`
   font-family: var(--font-title);
-  font-size: 4vw; // 48px
+  font-size: 3vw; // 48px
   font-weight: 500;
   letter-spacing: -2%;
   line-height: 88.3%;

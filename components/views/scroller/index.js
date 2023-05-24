@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import Parallax from 'components/parallax'
 import { ParagraphWrapper, RowText, RowWrapper, SectionWrapper } from './style'
@@ -10,7 +10,7 @@ const ScrollerSection = () => {
   let opacityChange = useRef([])
   let root = useRef()
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     let ctx = gsap.context(() => {
       animRow.current.forEach((el) => {
         gsap.from(el, {
@@ -72,7 +72,7 @@ const ScrollerSection = () => {
       <RowWrapper se>
         <div ref={(el) => (animRow.current[6] = el)}>
           <Parallax speed={1} direction="horizontal" trigger={trigger}>
-            <RowText ml={'-30vw'}>Based in Los</RowText>
+            <RowText ml={'-20vw'}>Based in Los</RowText>
           </Parallax>
         </div>
         <ParagraphWrapper>
