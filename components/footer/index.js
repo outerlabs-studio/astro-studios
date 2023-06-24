@@ -20,7 +20,7 @@ const Footer = () => {
         yPercent: -50,
         scrollTrigger: {
           trigger: footerContainer.current,
-          pinSpacing: false,
+
           start: 'top+=25% bottom',
           end: 'bottom+=55% bottom',
           markers: true,
