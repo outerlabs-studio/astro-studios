@@ -26,11 +26,6 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     width: 100%;
   }
-  ::-webkit-scrollbar {
-    display: none;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
   ::selection {
     background: var(--orange);
     color: var(--yellow);

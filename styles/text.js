@@ -20,6 +20,7 @@ export const TitleHeader = styled.h1`
 `
 export const TitleSubheader = styled.h2`
   font-family: var(--font-title);
+  color: var(--white);
   font-size: 7vw; // 96px
   font-weight: 500;
   letter-spacing: -2%;

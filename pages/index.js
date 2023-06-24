@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import { useLenis } from '@studio-freight/react-lenis'
-import { Bear, Layout } from 'components'
+import { Bear, Footer, Layout } from 'components'
 import {
   About,
   Hero,
@@ -28,6 +28,7 @@ function Home() {
       </div>
       <SmallInfoSection />
       <TeamSection />
+      <Footer />
       <h2>Some example content</h2>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
