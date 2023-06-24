@@ -12,7 +12,7 @@ import { useEffect, useRef } from 'react'
 const InfoSection = () => {
   let sectionRef = useRef()
   let itemsRef = useRef([])
-  const comp = useRef()
+  const root = useRef()
 
   useEffect(() => {
     let ctx = gsap.context(() => {
@@ -25,6 +25,7 @@ const InfoSection = () => {
             start: 'top bottom',
             end: item.id === 'break-line' ? '+=1000' : '+=500',
             scrub: true,
+            pinSpacing: false,
           },
         })
       })
@@ -36,9 +37,10 @@ const InfoSection = () => {
           start: 'center top',
           end: 'bottom top',
           scrub: true,
+          pinSpacing: false,
         },
       })
-    }, comp)
+    }, root)
 
     return () => ctx.revert()
   }, [])

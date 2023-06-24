@@ -11,7 +11,6 @@ import { useIsTouchDevice } from 'hooks'
 
 const ButtonWrapper = styled.div`
   position: relative;
-  width: fit-content;
 `
 
 const ButtonStyle = css`
