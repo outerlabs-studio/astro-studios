@@ -6,6 +6,7 @@ export const FooterWrapper = styled.footer`
   width: 100%;
   overflow: hidden;
   background-color: var(--blue);
+  border-top: 10px solid var(--orange);
 `
 export const ContentWrapper = styled.div`
   position: relative;
