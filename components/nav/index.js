@@ -12,7 +12,6 @@ import {
   PageHeader,
 } from './styles'
 import { useWindowSize } from 'hooks'
-import { WrappedBuildError } from 'next/dist/server/base-server'
 
 const Nav = () => {
   let sectionRef = useRef(null)
