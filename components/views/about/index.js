@@ -42,7 +42,12 @@ const About = () => {
       tl.to(image, { opacity: 0 }, 0)
     })
 
-    // tl.to('#logo', { color: 'rgb(251, 251, 251)' }, 0)
+    tl.fromTo(
+      '#logo',
+      { color: 'rgb(1, 20, 223)' },
+      { color: 'rgb(251, 251, 251)' },
+      0
+    )
   }, [])
 
   return (

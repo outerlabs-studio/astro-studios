@@ -22,7 +22,6 @@ const Footer = () => {
           trigger: footerContainer.current,
           start: 'top+=22.5% bottom',
           end: 'bottom+=14% bottom',
-          markers: true,
           scrub: true,
         },
       })

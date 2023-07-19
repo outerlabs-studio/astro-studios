@@ -15,6 +15,22 @@ const InfoSection = () => {
   const root = useRef()
 
   useEffect(() => {
+    gsap.fromTo(
+      '#logo',
+      { color: 'rgb(251, 251, 251)' },
+      {
+        color: 'rgb(1, 20, 223)',
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: 'bottom top+=30%',
+          scrub: true,
+          // toggleActions: 'play reverse play reverse',
+        },
+      }
+    )
+  }, [])
+
+  useEffect(() => {
     let ctx = gsap.context(() => {
       itemsRef.current.forEach((item, i) => {
         gsap.from(item, {

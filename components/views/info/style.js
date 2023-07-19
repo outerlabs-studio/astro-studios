@@ -26,6 +26,7 @@ export const InformationWrapper = styled.div`
   display: flex;
   flex-direction: column;
   max-width: 37rem;
+  padding-left: 4rem;
 `
 export const Line = styled.div`
   background-color: var(--white);

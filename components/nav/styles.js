@@ -30,6 +30,8 @@ export const MainLogo = styled(Container)`
   transform: translate(-50%, -50%);
   margin-top: 2vw;
   z-index: ${Z.LOGO};
+
+  opacity: 0; // reset for initial page load
 `
 export const NavLinks = styled.ul`
   display: flex;
@@ -41,5 +43,13 @@ export const NavLinks = styled.ul`
 
   li:last-child {
     margin-left: 16px;
+  }
+`
+export const LetterWrapper = styled.div`
+  display: inline-block;
+  overflow: hidden;
+
+  div {
+    display: inline-block;
   }
 `
