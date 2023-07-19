@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Logo, Z, media } from 'styles'
+import { Container, Logo, Z, media } from 'styles'
 
 export const PageHeader = styled.header`
   position: fixed;
@@ -20,20 +20,16 @@ export const InvisWrapper = styled.div`
   top: 0;
   left: 0;
   width: 100%;
-  height: calc(100vh - 2vw);
   margin-top: 2vw;
-  z-index: ${Z.INVIS_WRAPPER};
-`
-export const LogoWrapper = styled.div`
-  position: relative;
-  height: inherit;
   z-index: ${Z.LOGO};
 `
-export const MainLogo = styled(Logo)`
-  position: absolute;
+export const MainLogo = styled(Container)`
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  margin-top: 2vw;
+  z-index: ${Z.LOGO};
 `
 export const NavLinks = styled.ul`
   display: flex;

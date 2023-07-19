@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import CustomButton from 'components/button'
 import CustomLink from 'components/link'
 import gsap from 'gsap'
-import { Container } from 'styles'
+import { Container, Logo } from 'styles'
 import {
   InvisWrapper,
   LogoWrapper,
@@ -11,18 +11,17 @@ import {
   NavWrapper,
   PageHeader,
 } from './styles'
+import { useWindowSize } from 'hooks'
+import { WrappedBuildError } from 'next/dist/server/base-server'
 
 const Nav = () => {
-  let tl = gsap.timeline()
   let sectionRef = useRef(null)
   let logoRef = useRef(null)
+  let fontRef = useRef(null)
+  const { width } = useWindowSize()
 
   useEffect(() => {
-    tl.to(logoRef, {
-      top: '0',
-      left: '0',
-      fontSize: '30px',
-      transform: 'unset',
+    let tl = gsap.timeline({
       scrollTrigger: {
         trigger: '#home',
         start: '1px top',
@@ -31,7 +30,13 @@ const Nav = () => {
         invalidateOnRefresh: true,
       },
     })
-  }, [])
+
+    tl.to(logoRef, { top: '0%', left: '0%', transform: 'unset' }, 0).to(
+      fontRef,
+      { fontSize: '2vw' },
+      0
+    )
+  }, [width])
 
   return (
     <>
@@ -50,13 +55,12 @@ const Nav = () => {
           </NavWrapper>
         </Container>
       </PageHeader>
-      <InvisWrapper>
-        <Container>
-          <LogoWrapper>
-            <MainLogo ref={(el) => (logoRef = el)}>astro studios</MainLogo>
-          </LogoWrapper>
-        </Container>
-      </InvisWrapper>
+
+      <MainLogo ref={(el) => (logoRef = el)}>
+        <Logo ref={(el) => (fontRef = el)} id="logo">
+          astro studios
+        </Logo>
+      </MainLogo>
     </>
   )
 }

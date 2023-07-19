@@ -11,13 +11,11 @@ import {
 } from './style'
 import { Parallax } from 'components'
 import { gsap } from 'gsap'
-import { useWindowSize } from 'hooks'
 
 const About = () => {
   let trigger = useRef()
   let timeline = useRef()
   let imageRef = useRef([])
-  const { width: windowWidth } = useWindowSize()
 
   useEffect(() => {
     let tl = gsap.timeline({
@@ -43,6 +41,8 @@ const About = () => {
     imageRef.current.forEach((image) => {
       tl.to(image, { opacity: 0 }, 0)
     })
+
+    // tl.to('#logo', { color: 'rgb(251, 251, 251)' }, 0)
   }, [])
 
   return (

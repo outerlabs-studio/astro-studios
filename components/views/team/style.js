@@ -1,5 +1,5 @@
 import { styled } from 'styled-components'
-import { TitleHeader } from 'styles'
+import { TitleHeader, Z } from 'styles'
 
 export const StyledSection = styled.section`
   position: relative;
@@ -37,21 +37,21 @@ const ImageWrapper = styled.div`
 `
 export const LeftImage = styled(ImageWrapper)`
   left: 5vw;
-  z-index: 3;
+  z-index: 1;
 `
 export const RightImage = styled(ImageWrapper)`
   right: 5vw;
-  z-index: 4;
+  z-index: 2;
 `
 export const Line1 = styled(Line)`
   transform: rotate(-25deg);
   margin-left: -8%;
-  z-index: 5;
+  z-index: 3;
 `
 export const Line2 = styled(Line)`
   transform: rotate(25deg);
   margin-left: -8%;
-  z-index: 2;
+  z-index: 0;
 `
 export const CustomScrollerText = styled(TitleHeader)`
   white-space: nowrap;
