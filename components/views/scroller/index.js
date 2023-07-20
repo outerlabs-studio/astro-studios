@@ -8,7 +8,6 @@ const ScrollerSection = () => {
   let trigger = useRef()
   let animRow = useRef([])
   let opacityChange = useRef([])
-  let root = useRef()
 
   useEffect(() => {
     let ctx = gsap.context(() => {
@@ -22,7 +21,7 @@ const ScrollerSection = () => {
           },
         })
       })
-    }, root)
+    })
 
     return () => ctx.revert()
   }, [])

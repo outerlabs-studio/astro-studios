@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import CustomButton from 'components/button'
 import CustomLink from 'components/link'
 import gsap from 'gsap'
@@ -12,53 +12,55 @@ import {
   NavWrapper,
   PageHeader,
 } from './styles'
-import { useWindowSize } from 'hooks'
+import { useIsomorphicLayoutEffect, useWindowSize } from 'hooks'
 
 const Nav = () => {
   let sectionRef = useRef(null)
   let logoRef = useRef(null)
   let fontRef = useRef(null)
-  let letters = useRef([])
+
   const root = useRef()
   const { width } = useWindowSize()
 
-  useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     let ctx = gsap.context(() => {
-      // we have to do this to fix the fromTo bug in the info component
-      // without this, the text will initially be rendered as white
-      gsap.to(fontRef, { color: 'var(--blue)' })
+      let tl = gsap.timeline()
 
       // we have to do this to prevent the flicker from happening
       // on initial page load
-      gsap.to(logoRef, { opacity: 1 })
+      tl.set(logoRef, { opacity: 1 })
 
-      gsap.from(letters.current, {
+      tl.from(fontRef.querySelectorAll('div'), {
         yPercent: 100,
         ease: 'power3.inOut',
         stagger: 0.05,
         delay: 0.5,
       })
-    }, [])
-
-    return () => ctx.revert()
-  }, root)
-
-  useEffect(() => {
-    let tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: '#home',
-        start: '1px top',
-        end: 'bottom center',
-        scrub: true,
-        invalidateOnRefresh: true,
-      },
     })
 
-    tl.to(logoRef, { top: '0%', left: '0%', transform: 'unset' }, 0).to(
-      fontRef,
-      { fontSize: '2vw' },
-      0
-    )
+    return () => ctx.revert()
+  }, [])
+
+  useIsomorphicLayoutEffect(() => {
+    let ctx = gsap.context(() => {
+      let tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: '#home',
+          start: '1px top',
+          end: 'bottom center',
+          scrub: true,
+          invalidateOnRefresh: true,
+        },
+      })
+
+      tl.to(logoRef, { top: '0%', left: '0%', transform: 'unset' }, 0).to(
+        fontRef,
+        { fontSize: '2vw' },
+        0
+      )
+    })
+
+    return () => ctx.revert()
   }, [width])
 
   return (
@@ -81,42 +83,22 @@ const Nav = () => {
 
       <MainLogo ref={(el) => (logoRef = el)}>
         <Logo ref={(el) => (fontRef = el)} id="logo">
-          <LetterWrapper>
-            <div ref={(el) => (letters.current[0] = el)}>a</div>
-          </LetterWrapper>
-          <LetterWrapper>
-            <div ref={(el) => (letters.current[1] = el)}>s</div>
-          </LetterWrapper>
-          <LetterWrapper>
-            <div ref={(el) => (letters.current[2] = el)}>t</div>
-          </LetterWrapper>
-          <LetterWrapper>
-            <div ref={(el) => (letters.current[3] = el)}>r</div>
-          </LetterWrapper>
-          <LetterWrapper>
-            <div ref={(el) => (letters.current[4] = el)}>o&nbsp;</div>
-          </LetterWrapper>
-          <LetterWrapper>
-            <div ref={(el) => (letters.current[5] = el)}>s</div>
-          </LetterWrapper>
-          <LetterWrapper>
-            <div ref={(el) => (letters.current[6] = el)}>t</div>
-          </LetterWrapper>
-          <LetterWrapper>
-            <div ref={(el) => (letters.current[7] = el)}>u</div>
-          </LetterWrapper>
-          <LetterWrapper>
-            <div ref={(el) => (letters.current[8] = el)}>d</div>
-          </LetterWrapper>
-          <LetterWrapper>
-            <div ref={(el) => (letters.current[9] = el)}>i</div>
-          </LetterWrapper>
-          <LetterWrapper>
-            <div ref={(el) => (letters.current[10] = el)}>o</div>
-          </LetterWrapper>
-          <LetterWrapper>
-            <div ref={(el) => (letters.current[11] = el)}>s</div>
-          </LetterWrapper>
+          {[
+            'a',
+            's',
+            't',
+            'r',
+            'o\u00A0',
+            's',
+            't',
+            'u',
+            'd',
+            'i',
+            'o',
+            's',
+          ].map((letter, index) => (
+            <LetterWrapper key={index}>{letter}</LetterWrapper>
+          ))}
         </Logo>
       </MainLogo>
     </>

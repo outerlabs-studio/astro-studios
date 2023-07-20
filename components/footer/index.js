@@ -12,7 +12,6 @@ import { CustomButton, CustomLink } from 'components'
 
 const Footer = () => {
   let footerContainer = useRef(null)
-  const root = useRef()
 
   useEffect(() => {
     let ctx = gsap.context(() => {
@@ -25,7 +24,7 @@ const Footer = () => {
           scrub: true,
         },
       })
-    }, root)
+    })
 
     return () => ctx.revert()
   }, [])

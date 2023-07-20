@@ -1,4 +1,4 @@
-import { useLenis } from '@studio-freight/react-lenis'
+import { useRef, useState } from 'react'
 import { Bear, Footer, Layout } from 'components'
 import {
   About,
@@ -9,6 +9,8 @@ import {
   TeamSection,
 } from 'components/views'
 import Nav from 'components/nav'
+import { useIsomorphicLayoutEffect, useRect } from 'hooks'
+import gsap from 'gsap'
 
 function Home() {
   return (

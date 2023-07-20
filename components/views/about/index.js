@@ -11,43 +11,48 @@ import {
 } from './style'
 import { Parallax } from 'components'
 import { gsap } from 'gsap'
+import { useIsomorphicLayoutEffect } from 'hooks'
 
-const About = () => {
+const About = ({ logoTl }) => {
   let trigger = useRef()
   let timeline = useRef()
   let imageRef = useRef([])
 
-  useEffect(() => {
-    let tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: trigger.current,
-        scrub: true,
-        start: 'center top',
-        end: 'bottom center',
-      },
-    })
+  useIsomorphicLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      let tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: trigger.current,
+          scrub: true,
+          start: 'center top',
+          end: 'bottom center',
+        },
+      })
 
-    let changeBg = gsap.utils.toArray('#change-bg')
+      let changeBg = gsap.utils.toArray('#change-bg')
 
-    changeBg.forEach((el) => {
+      changeBg.forEach((el) => {
+        tl.fromTo(
+          el,
+          { backgroundColor: 'rgb(251, 251, 251)' },
+          { backgroundColor: 'rgb(1, 20, 223)' },
+          0
+        )
+      })
+
+      imageRef.current.forEach((image) => {
+        tl.to(image, { opacity: 0 }, 0)
+      })
+
       tl.fromTo(
-        el,
-        { backgroundColor: 'rgb(251, 251, 251)' },
-        { backgroundColor: 'rgb(1, 20, 223)' },
+        '#logo',
+        { color: 'rgb(1, 20, 223)' },
+        { color: 'rgb(251, 251, 251)' },
         0
       )
     })
 
-    imageRef.current.forEach((image) => {
-      tl.to(image, { opacity: 0 }, 0)
-    })
-
-    tl.fromTo(
-      '#logo',
-      { color: 'rgb(1, 20, 223)' },
-      { color: 'rgb(251, 251, 251)' },
-      0
-    )
+    return () => ctx.revert()
   }, [])
 
   return (

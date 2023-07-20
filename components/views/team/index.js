@@ -18,7 +18,7 @@ const TeamSection = () => {
   let target = useRef()
 
   return (
-    <StyledSection ref={target}>
+    <StyledSection>
       <SectionHeader>
         <TitleWrapper>
           <TitleSubtile>

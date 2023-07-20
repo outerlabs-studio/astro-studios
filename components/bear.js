@@ -19,15 +19,19 @@ const Bear = () => {
   let bearRef = useRef()
 
   useEffect(() => {
-    gsap.to(bearRef.current, {
-      rotation: 360,
-      scrollTrigger: {
-        trigger: '#info-section',
-        scrub: true,
-        start: 'top bottom',
-        end: 'bottom bottom',
-      },
+    let ctx = gsap.context((self) => {
+      gsap.to(bearRef.current, {
+        rotation: 360,
+        scrollTrigger: {
+          trigger: '#info-section',
+          scrub: true,
+          start: 'top bottom',
+          end: 'bottom bottom',
+        },
+      })
     })
+
+    return () => ctx.revert()
   }, [])
 
   return (

@@ -8,29 +8,30 @@ import {
 } from './style'
 import { gsap } from 'gsap'
 import { useEffect, useRef } from 'react'
+import { useIsomorphicLayoutEffect } from 'hooks'
 
 const InfoSection = () => {
   let sectionRef = useRef()
   let itemsRef = useRef([])
-  const root = useRef()
 
-  useEffect(() => {
-    gsap.fromTo(
-      '#logo',
-      { color: 'rgb(251, 251, 251)' },
-      {
+  useIsomorphicLayoutEffect(() => {
+    let ctx = gsap.context(() => {
+      gsap.to('#logo', {
         color: 'rgb(1, 20, 223)',
         scrollTrigger: {
           trigger: sectionRef.current,
           start: 'bottom top+=30%',
+          end: 'bottom+=20% center',
           scrub: true,
-          // toggleActions: 'play reverse play reverse',
+          invalidateOnRefresh: true,
         },
-      }
-    )
+      })
+    })
+
+    return () => ctx.revert()
   }, [])
 
-  useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     let ctx = gsap.context(() => {
       itemsRef.current.forEach((item, i) => {
         gsap.from(item, {
@@ -55,7 +56,7 @@ const InfoSection = () => {
           pinSpacing: false,
         },
       })
-    }, root)
+    })
 
     return () => ctx.revert()
   }, [])

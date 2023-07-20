@@ -31,12 +31,13 @@
     "preact": "^10.13.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "stats.js": "^0.17.0",
     "styled-components": "^6.0.0-rc.1"
   },
   "devDependencies": {
     "@builder.io/partytown": "^0.8.0",
+    "@cerner/duplicate-package-checker-webpack-plugin": "^2.3.0",
     "@next/bundle-analyzer": "^13.4.2",
-    "critters": "^0.0.16",
-    "duplicate-package-checker-webpack-plugin": "^3.0.0"
+    "critters": "^0.0.16"
   }
 }
