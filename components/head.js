@@ -6,7 +6,7 @@ export default function CustomHead({
   description,
   image,
   keywords,
-  theme = { mask: '#0114DF', tile: '#0114DF', color: '#0114DF' },
+  theme = { mask: '#0114df', tile: '#fbfbfb', color: '#0114df' },
   twitter = { handle: '@studiofreight' },
 }) {
   return (
@@ -35,39 +35,39 @@ export default function CustomHead({
           name="keywords"
           content={keywords && keywords.length ? keywords.join(',') : keywords}
         />
-        <meta name="author" content="Studio Freight" />
+        <meta name="author" content="Outer Labs" />
         <meta name="referrer" content="no-referrer" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="geo.region" content="US" />
 
         {/* START FAVICON */}
-        <link rel="manifest" href="/site.webmanifest" />
+        <link rel="manifest" href="/favicon/site.webmanifest" />
         <link
           rel="apple-touch-icon"
           sizes="180x180"
-          href="/apple-touch-icon.png"
+          href="/favicon/apple-touch-icon.png"
         />
         <link
           rel="icon"
           type="image/png"
           sizes="32x32"
-          href="/favicon-32x32.png"
+          href="/favicon/favicon-32x32.png"
         />
         <link
           rel="icon"
           type="image/png"
           sizes="16x16"
-          href="/favicon-16x16.png"
+          href="/favicon/favicon-16x16.png"
         />
-        <link rel="manifest" href="/site.webmanifest" />
+        <link rel="manifest" href="/favicon/site.webmanifest" />
         <link
           rel="mask-icon"
-          href="/safari-pinned-tab.svg"
+          href="/favicon/safari-pinned-tab.svg"
           color={theme.mask}
         />
         <meta name="msapplication-TileColor" content={theme.tile} />
-        <meta name="theme-color" content={theme.color} />
-        <link rel="icon" href="/favicon.ico" />
+        <meta name="theme-color" content={theme.tile} />
+        <link rel="icon" href="/favicon/favicon.ico" />
         {/* END FAVICON */}
 
         <title>{title}</title>
