@@ -29,7 +29,7 @@ const About = ({ logoTl }) => {
         },
       })
 
-      let changeBg = gsap.utils.toArray('#change-bg')
+      let changeBg = gsap.utils.toArray('.change-bg')
 
       changeBg.forEach((el) => {
         tl.fromTo(
@@ -56,7 +56,7 @@ const About = ({ logoTl }) => {
   }, [])
 
   return (
-    <SectionWrapper id="change-bg" ref={trigger}>
+    <SectionWrapper className="change-bg" id="about" ref={trigger}>
       <Container>
         <TextWrapper>
           <TitleHeader className="about-text">

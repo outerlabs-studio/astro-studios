@@ -14,6 +14,7 @@ const StyledLink = styled.a`
   line-height: 130%;
   text-decoration: none;
   color: ${(props) => props.color || 'var(--black)'};
+  cursor: pointer;
 `
 
 /**
@@ -28,9 +29,7 @@ const StyledLink = styled.a`
  * @returns {React.ReactElement} CustomLink component.
  */
 const CustomLink = ({ href, to, target, children, color, ...rest }) => {
-  const isInternalLink = Boolean(to)
-
-  if (isInternalLink) {
+  if (to) {
     return (
       <Link href={to} passHref legacyBehavior>
         <StyledLink color={color}>{children}</StyledLink>

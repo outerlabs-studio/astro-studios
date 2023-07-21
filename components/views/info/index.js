@@ -62,7 +62,7 @@ const InfoSection = () => {
   }, [])
 
   return (
-    <SectionWrapper ref={sectionRef} id="change-bg">
+    <SectionWrapper ref={sectionRef} className="change-bg">
       <Container fluid>
         <ItemWrapper>
           <RowWrapper>
