@@ -11,7 +11,7 @@ import {
 } from './style'
 import { Parallax } from 'components'
 import { gsap } from 'gsap'
-import { useIsomorphicLayoutEffect } from 'hooks'
+import { useIsomorphicLayoutEffect } from 'react-use'
 
 const About = ({ logoTl }) => {
   let trigger = useRef()

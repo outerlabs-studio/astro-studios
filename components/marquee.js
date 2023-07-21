@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import { useIntersection } from 'hooks'
+import { useIntersection } from 'react-use'
 import { styled } from 'styled-components'
 
 const StyledMarquee = styled.div`

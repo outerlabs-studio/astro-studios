@@ -9,7 +9,8 @@ import {
   TeamSection,
 } from 'components/views'
 import Nav from 'components/nav'
-import { useIsomorphicLayoutEffect, useRect } from 'hooks'
+import { useRect } from 'hooks'
+import { useIsomorphicLayoutEffect } from 'react-use'
 import gsap from 'gsap'
 
 function Home() {

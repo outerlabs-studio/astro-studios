@@ -11,7 +11,6 @@ export const FooterWrapper = styled.footer`
 export const ContentWrapper = styled.div`
   position: relative;
   padding: 6vw 0;
-  width: 60rem;
   height: 90vh;
   display: flex;
   flex-direction: column;

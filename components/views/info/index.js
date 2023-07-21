@@ -8,7 +8,7 @@ import {
 } from './style'
 import { gsap } from 'gsap'
 import { useEffect, useRef } from 'react'
-import { useIsomorphicLayoutEffect } from 'hooks'
+import { useIsomorphicLayoutEffect } from 'react-use'
 
 const InfoSection = () => {
   let sectionRef = useRef()

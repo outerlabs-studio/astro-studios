@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import { useLenis } from '@studio-freight/react-lenis'
-import { useRect, useWindowSize } from 'hooks'
+import { useRect } from 'hooks'
+import { useWindowSize } from 'react-use'
 import { styled } from 'styled-components'
 
 function truncate(value, decimals) {

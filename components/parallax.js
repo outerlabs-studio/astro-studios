@@ -1,7 +1,7 @@
 // https://github.com/studio-freight/compono/blob/main/src/parallax/index.js
 import { useEffect, useRef, cloneElement } from 'react'
 import { gsap } from 'gsap'
-import { useWindowSize } from 'hooks'
+import { useWindowSize } from 'react-use'
 
 /**
  * Parallax Component

@@ -12,7 +12,7 @@ import {
   NavWrapper,
   PageHeader,
 } from './styles'
-import { useIsomorphicLayoutEffect, useWindowSize } from 'hooks'
+import { useIsomorphicLayoutEffect, useWindowSize } from 'react-use'
 
 const Nav = () => {
   let sectionRef = useRef(null)

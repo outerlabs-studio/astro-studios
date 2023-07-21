@@ -32,7 +32,10 @@ const Footer = () => {
   return (
     <FooterWrapper>
       <ContentWrapper ref={footerContainer}>
-        <TitleSubheader>we’re feeling a bit silly. wbu?</TitleSubheader>
+        <TitleSubheader>
+          we’re feeling a<br />
+          bit silly. wbu?
+        </TitleSubheader>
         <ButtonWrapper>
           <CustomButton href="/contact">Let's talk instead</CustomButton>
         </ButtonWrapper>
