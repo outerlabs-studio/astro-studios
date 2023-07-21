@@ -12,7 +12,7 @@ import {
   NavWrapper,
   PageHeader,
 } from './styles'
-import { useIsomorphicLayoutEffect, useWindowSize } from 'react-use'
+import { useIsomorphicLayoutEffect, useMedia, useWindowSize } from 'react-use'
 
 const Nav = () => {
   let sectionRef = useRef(null)
@@ -21,6 +21,12 @@ const Nav = () => {
 
   const root = useRef()
   const { width } = useWindowSize()
+
+  const isDesktop = useMedia('(min-width: 1000px)')
+  const isTablet = useMedia('(min-width: 550px)')
+  const isMobile = useMedia('(min-width: 330px)')
+
+  console.log('isMobile', isMobile)
 
   useIsomorphicLayoutEffect(() => {
     let ctx = gsap.context(() => {
@@ -53,9 +59,23 @@ const Nav = () => {
         },
       })
 
-      tl.to(logoRef, { top: '0%', left: '0%', transform: 'unset' }, 0).to(
+      tl.to(
+        logoRef,
+        isMobile
+          ? { top: '0%', left: '0%', transform: 'unset' }
+          : { top: '0%', left: '50%' },
+        0
+      ).to(
         fontRef,
-        { fontSize: '2vw' },
+        {
+          fontSize: isDesktop
+            ? '2vw'
+            : isTablet
+            ? '4vw'
+            : isMobile
+            ? '6vw'
+            : '10vw',
+        },
         0
       )
     })
@@ -71,7 +91,9 @@ const Nav = () => {
             <div />
             <NavLinks>
               <li>
-                <CustomLink to="#about">About</CustomLink>
+                <CustomLink to="#about" className="about">
+                  About
+                </CustomLink>
               </li>
               <li>
                 <CustomButton href="/contact">Contact</CustomButton>

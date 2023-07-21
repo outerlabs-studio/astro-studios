@@ -6,6 +6,7 @@ export const PageHeader = styled.header`
   z-index: ${Z.PAGE_HEADER};
   width: 100%;
   padding-bottom: 5vw;
+  overflow: hidden;
 `
 export const NavWrapper = styled.nav`
   position: relative;
@@ -14,6 +15,9 @@ export const NavWrapper = styled.nav`
   align-items: center;
   width: 100%;
   padding: 3vw 0 2vw;
+
+  ${media.tablet`padding: 5vw 0 4vw;`};
+  ${media.phone`padding: 10vw 0 4vw;`};
 `
 export const InvisWrapper = styled.div`
   position: fixed;
@@ -32,6 +36,9 @@ export const MainLogo = styled(Container)`
   z-index: ${Z.LOGO};
   overflow: hidden;
 
+  ${media.tablet`margin-top: 4vw;`};
+  ${media.phone`margin-top: 9vw;`};
+
   opacity: 0; // reset for initial page load
 `
 export const NavLinks = styled.ul`
@@ -42,8 +49,13 @@ export const NavLinks = styled.ul`
   padding: 0;
   margin: 0;
 
+  li:first-child {
+    ${media.phone`display: none;`};
+  }
+
   li:last-child {
     margin-left: 16px;
+    ${media.tiny`display: none;`};
   }
 `
 export const LetterWrapper = styled.div`

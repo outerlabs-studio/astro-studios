@@ -55,6 +55,9 @@ const GlobalStyle = createGlobalStyle`
   .aki__line {
     overflow: hidden;
   }
+  section, footer {
+    overflow:hidden;
+  }
 `
 
 export default GlobalStyle
