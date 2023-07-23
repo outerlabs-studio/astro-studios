@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Z } from 'styles'
+import { Z, media } from 'styles'
 
 export const SectionWrapper = styled.section`
   position: relative;
@@ -21,12 +21,16 @@ export const RowWrapper = styled.div`
   align-items: start;
   width: 100%;
   padding-top: 10rem;
+
+  ${media.phablet`flex-direction: column;`};
 `
 export const InformationWrapper = styled.div`
   display: flex;
   flex-direction: column;
   max-width: 37rem;
   padding-left: 4rem;
+
+  ${media.phablet`padding: 2rem 0 0 0;`};
 `
 export const Line = styled.div`
   background-color: var(--white);

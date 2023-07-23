@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Z } from 'styles'
+import { Z, media } from 'styles'
 
 export const FooterWrapper = styled.footer`
   position: relative;
@@ -29,6 +29,10 @@ export const LineWrapper = styled.div`
   width: 100%;
   bottom: 0;
   z-index: ${Z.PAGE_HEADER};
+
+  p {
+    padding-bottom: 0.2rem;
+  }
 `
 export const LineContentWrapper = styled.div`
   display: flex;
@@ -36,4 +40,6 @@ export const LineContentWrapper = styled.div`
   flex-direction: row;
   justify-content: space-between;
   color: var(--white);
+
+  ${media.phone`flex-direction: column;`};
 `

@@ -1,5 +1,5 @@
 import { styled } from 'styled-components'
-import { TitleHeader, Z } from 'styles'
+import { TitleHeader, Z, media } from 'styles'
 
 export const SectionWrapper = styled.section`
   position: relative;
@@ -8,6 +8,9 @@ export const SectionWrapper = styled.section`
   padding-top: 10rem;
   padding-bottom: 40vw;
   z-index: 1;
+
+  ${media.tablet`padding-bottom: 60vw;`};
+  ${media.phablet`padding-bottom: 80vw;`};
 `
 export const RowWrapper = styled.div`
   position: relative;

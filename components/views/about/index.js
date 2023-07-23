@@ -11,12 +11,15 @@ import {
 } from './style'
 import { Parallax } from 'components'
 import { gsap } from 'gsap'
-import { useIsomorphicLayoutEffect } from 'react-use'
+import { useIsomorphicLayoutEffect, useMedia } from 'react-use'
 
 const About = ({ logoTl }) => {
   let trigger = useRef()
   let timeline = useRef()
   let imageRef = useRef([])
+
+  const isTablet = useMedia('(min-width: 550px)')
+  const isPhone = useMedia('(min-width: 420px)')
 
   useIsomorphicLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -24,7 +27,7 @@ const About = ({ logoTl }) => {
         scrollTrigger: {
           trigger: trigger.current,
           scrub: true,
-          start: 'center top',
+          start: isTablet ? 'center top' : 'top top',
           end: 'bottom center',
         },
       })
@@ -53,19 +56,19 @@ const About = ({ logoTl }) => {
     })
 
     return () => ctx.revert()
-  }, [])
+  }, [isTablet])
 
   return (
     <SectionWrapper className="change-bg" id="about" ref={trigger}>
       <Container>
         <TextWrapper>
           <TitleHeader className="about-text">
-            a Gen Z podcast company focused on capturing the conversations that
-            comfort you and making them available when you need them the most
+            a Gen Z podcast company focused on capturing the convos that comfort
+            you and making them available when you need them the most
           </TitleHeader>
         </TextWrapper>
         <FirstImage ref={(el) => (imageRef.current[0] = el)}>
-          <Parallax speed={-1.5} trigger={trigger}>
+          <Parallax speed={isPhone ? -1.5 : -2.5} trigger={trigger}>
             <Image
               src="/images/blue.png"
               alt="what does getting cheated on feel like?"
@@ -75,7 +78,7 @@ const About = ({ logoTl }) => {
           </Parallax>
         </FirstImage>
         <SecondImage ref={(el) => (imageRef.current[1] = el)}>
-          <Parallax speed={0.5} trigger={trigger}>
+          <Parallax speed={isPhone ? 0.5 : 1.5} trigger={trigger}>
             <Image
               src="/images/red.png"
               alt="what does getting cheated on feel like?"
@@ -85,7 +88,7 @@ const About = ({ logoTl }) => {
           </Parallax>
         </SecondImage>
         <ThirdImage ref={(el) => (imageRef.current[2] = el)}>
-          <Parallax speed={-1.5} trigger={trigger}>
+          <Parallax speed={isPhone ? -1.5 : -2.5} trigger={trigger}>
             <Image
               src="/images/purple.png"
               alt="what does getting cheated on feel like?"
@@ -95,7 +98,7 @@ const About = ({ logoTl }) => {
           </Parallax>
         </ThirdImage>
         <FourthImage ref={(el) => (imageRef.current[3] = el)}>
-          <Parallax speed={-1} trigger={trigger}>
+          <Parallax speed={isPhone ? -1 : -2} trigger={trigger}>
             <Image
               src="/images/pink.png"
               alt="what does getting cheated on feel like?"

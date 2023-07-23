@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import Image from 'next/image'
 import gsap from 'gsap'
-import { Z } from 'styles'
+import { Z, media } from 'styles'
 
 const FloatingBear = styled.div`
   position: sticky;
@@ -10,9 +10,25 @@ const FloatingBear = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   height: 25vw;
-  width: 28vw;
+  width: 30vw;
   margin: -13vw;
   z-index: ${Z.STICKY_BEAR};
+
+  ${media.tablet`
+    height: 35vw;
+    width: 40vw;
+    margin: -20vw;
+  `};
+  ${media.phablet`
+    height: 45vw;
+    width: 50vw;
+    margin: -25vw;
+  `};
+  ${media.phone`
+    height: 55vw;
+    width: 60vw;
+    margin: -30vw;
+  `};
 `
 
 const Bear = () => {

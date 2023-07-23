@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import media from './_media'
 
 export const Logo = styled.h1`
   font-family: var(--font-logo);
@@ -8,6 +9,8 @@ export const Logo = styled.h1`
   white-space: nowrap;
   margin: 0;
   padding: 0;
+
+  ${media.tablet`font-size: 13vw;`};
 `
 export const TitleHeader = styled.h1`
   font-family: var(--font-title);
@@ -17,6 +20,9 @@ export const TitleHeader = styled.h1`
   line-height: 1.2;
   font-kerning: none;
   margin: ${({ nm, m }) => (nm ? 0 : m ? m : 'unset')};
+
+  ${media.tablet`font-size: 10vw;`};
+  ${media.phone`font-size: 15vw;`};
 `
 export const TitleSubheader = styled.h2`
   font-family: var(--font-title);
@@ -26,6 +32,8 @@ export const TitleSubheader = styled.h2`
   letter-spacing: -2%;
   line-height: 100%;
   margin: ${({ nm, m }) => (nm ? 0 : m ? m : 'unset')};
+
+  ${media.phablet`font-size: 10vw;`};
 `
 export const TitleSubtile = styled.h2`
   font-family: var(--font-title);
@@ -34,6 +42,9 @@ export const TitleSubtile = styled.h2`
   letter-spacing: -2%;
   line-height: 88.3%;
   margin: ${({ nm, m }) => (nm ? 0 : m ? m : 'unset')};
+
+  ${media.tablet`font-size: 5vw;`};
+  ${media.phablet`font-size: 7vw;`};
 `
 export const ArticleSubtitle = styled.h3`
   font-family: var(--font-text);

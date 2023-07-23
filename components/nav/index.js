@@ -26,8 +26,6 @@ const Nav = () => {
   const isTablet = useMedia('(min-width: 550px)')
   const isMobile = useMedia('(min-width: 330px)')
 
-  console.log('isMobile', isMobile)
-
   useIsomorphicLayoutEffect(() => {
     let ctx = gsap.context(() => {
       let tl = gsap.timeline()

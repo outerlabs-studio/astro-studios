@@ -1,14 +1,23 @@
 import { styled } from 'styled-components'
-import { TitleHeader, Z } from 'styles'
+import { TitleHeader, Z, media } from 'styles'
 
 export const StyledSection = styled.section`
   position: relative;
   padding: 30vw 0;
   width: 100%;
   text-align: center;
+
+  ${media.tablet`padding: 40vw 0;`}
+  ${media.phablet`padding: 20vw 0;`}
 `
 export const SectionHeader = styled.div`
   padding-bottom: 30vw;
+
+  ${media.desktop`padding-bottom: 60vw;`}
+  ${media.phablet`
+    padding-top: 100vw;
+    padding-bottom: 20vw;
+  `}
 `
 export const TitleWrapper = styled.div`
   margin: 0 auto;
@@ -27,6 +36,8 @@ const Line = styled.div`
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+
+  ${media.phablet`margin-top: -40vw;`};
 `
 const ImageWrapper = styled.div`
   position: absolute;
@@ -34,6 +45,12 @@ const ImageWrapper = styled.div`
   transform: translateY(-40%);
   width: 20vw;
   height: 30vw;
+
+  ${media.phablet`
+    width: 30vw;
+    height: 40vw;
+    top: 30%;
+  `};
 `
 export const LeftImage = styled(ImageWrapper)`
   left: 5vw;
