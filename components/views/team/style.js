@@ -47,9 +47,10 @@ const ImageWrapper = styled.div`
   height: 30vw;
 
   ${media.phablet`
-    width: 30vw;
-    height: 40vw;
-    top: 30%;
+    width: 40vw;
+    height: 50vw;
+    top: 25%;
+    transform: translateY(-25%);
   `};
 `
 export const LeftImage = styled(ImageWrapper)`
