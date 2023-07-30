@@ -7,7 +7,7 @@ export default function CustomHead({
   image,
   keywords,
   theme = { mask: '#0114df', tile: '#fbfbfb', color: '#0114df' },
-  twitter = { handle: '@studiofreight' },
+  twitter = { handle: '@kyryloren' },
 }) {
   return (
     <>
