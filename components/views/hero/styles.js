@@ -9,6 +9,7 @@ export const SectionWrapper = styled.section`
   align-items: center;
   justify-content: center;
   z-index: ${Z.NORMAL_SECTION};
+  text-align: center;
 `
 export const ScrollWrapper = styled.div`
   position: absolute;

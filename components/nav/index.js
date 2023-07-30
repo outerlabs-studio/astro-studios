@@ -12,9 +12,10 @@ import {
   NavWrapper,
   PageHeader,
 } from './styles'
+import { SplitText } from 'lib'
 import { useIsomorphicLayoutEffect, useMedia, useWindowSize } from 'react-use'
 
-const Nav = () => {
+const Nav = ({ logo }) => {
   let sectionRef = useRef(null)
   let logoRef = useRef(null)
   let fontRef = useRef(null)
@@ -27,6 +28,8 @@ const Nav = () => {
   const isMobile = useMedia('(min-width: 330px)')
 
   useIsomorphicLayoutEffect(() => {
+    const logoText = new SplitText(document.querySelector('#logo'))
+
     let ctx = gsap.context(() => {
       let tl = gsap.timeline()
 
@@ -34,7 +37,7 @@ const Nav = () => {
       // on initial page load
       tl.set(logoRef, { opacity: 1 })
 
-      tl.from(fontRef.querySelectorAll('div'), {
+      tl.from(logoText.chars, {
         yPercent: 100,
         ease: 'power3.inOut',
         stagger: 0.05,
@@ -103,22 +106,7 @@ const Nav = () => {
 
       <MainLogo ref={(el) => (logoRef = el)}>
         <Logo ref={(el) => (fontRef = el)} id="logo">
-          {[
-            'a',
-            's',
-            't',
-            'r',
-            'o\u00A0',
-            's',
-            't',
-            'u',
-            'd',
-            'i',
-            'o',
-            's',
-          ].map((letter, index) => (
-            <LetterWrapper key={index}>{letter}</LetterWrapper>
-          ))}
+          {logo}
         </Logo>
       </MainLogo>
     </>

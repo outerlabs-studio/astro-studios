@@ -13,7 +13,7 @@ import { Parallax } from 'components'
 import { gsap } from 'gsap'
 import { useIsomorphicLayoutEffect, useMedia } from 'react-use'
 
-const About = ({ logoTl }) => {
+const About = ({ description }) => {
   let trigger = useRef()
   let timeline = useRef()
   let imageRef = useRef([])
@@ -63,8 +63,7 @@ const About = ({ logoTl }) => {
       <Container>
         <TextWrapper>
           <TitleHeader className="about-text">
-            a Gen Z podcast company focused on capturing the convos that comfort
-            you and making them available when you need them the most
+            {description}
           </TitleHeader>
         </TextWrapper>
         <FirstImage ref={(el) => (imageRef.current[0] = el)}>

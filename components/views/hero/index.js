@@ -1,16 +1,18 @@
 import { useRef } from 'react'
 import { Parallax } from 'components'
 import { ScrollWrapper, SectionWrapper } from './styles'
-import { ArticleSubtitle } from 'styles'
+import { ArticleSubtitle, Container } from 'styles'
 
-const Hero = () => {
+const Hero = ({ subtitle }) => {
   const target = useRef()
 
   return (
     <SectionWrapper id="home" ref={target}>
       <ScrollWrapper>
         <Parallax speed={-0.5} trigger={target}>
-          <ArticleSubtitle>[scroll]</ArticleSubtitle>
+          <Container fluid>
+            <ArticleSubtitle>{subtitle}</ArticleSubtitle>
+          </Container>
         </Parallax>
       </ScrollWrapper>
     </SectionWrapper>
