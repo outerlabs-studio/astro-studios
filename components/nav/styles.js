@@ -38,7 +38,7 @@ export const MainLogo = styled(Container)`
 
   ${media.tablet`margin-top: 4vw;`};
   ${media.phone`margin-top: 9vw;`};
-
+  
   opacity: 0; // reset for initial page load
 `
 export const NavLinks = styled.ul`

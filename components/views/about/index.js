@@ -18,8 +18,8 @@ const About = ({ description }) => {
   let timeline = useRef()
   let imageRef = useRef([])
 
-  const isTablet = useMedia('(min-width: 550px)')
-  const isPhone = useMedia('(min-width: 420px)')
+  const isTablet = useMedia('(min-width: 550px)') || true
+  const isPhone = useMedia('(min-width: 420px)') || false
 
   useIsomorphicLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -62,9 +62,7 @@ const About = ({ description }) => {
     <SectionWrapper className="change-bg" id="about" ref={trigger}>
       <Container>
         <TextWrapper>
-          <TitleHeader className="about-text">
-            {description}
-          </TitleHeader>
+          <TitleHeader className="about-text">{description}</TitleHeader>
         </TextWrapper>
         <FirstImage ref={(el) => (imageRef.current[0] = el)}>
           <Parallax speed={isPhone ? -1.5 : -2.5} trigger={trigger}>

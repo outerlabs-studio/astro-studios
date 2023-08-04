@@ -16,7 +16,6 @@ import axios from 'axios'
 
 export default function Home({ data }) {
   const doc = data.data.attributes
-  console.log(doc)
 
   return (
     <Layout>

@@ -12,24 +12,27 @@ import {
   NavWrapper,
   PageHeader,
 } from './styles'
-import { SplitText } from 'lib'
-import { useIsomorphicLayoutEffect, useMedia, useWindowSize } from 'react-use'
+import {
+  useIsomorphicLayoutEffect,
+  useMedia,
+  useStartTyping,
+  useWindowSize,
+} from 'react-use'
 
 const Nav = ({ logo }) => {
   let sectionRef = useRef(null)
   let logoRef = useRef(null)
   let fontRef = useRef(null)
+  let letterRef = useRef([])
 
   const root = useRef()
   const { width } = useWindowSize()
 
-  const isDesktop = useMedia('(min-width: 1000px)')
-  const isTablet = useMedia('(min-width: 550px)')
-  const isMobile = useMedia('(min-width: 330px)')
+  const isDesktop = useMedia('(min-width: 1000px)') || true
+  const isTablet = useMedia('(min-width: 550px)') || false
+  const isMobile = useMedia('(min-width: 330px)') || false
 
   useIsomorphicLayoutEffect(() => {
-    const logoText = new SplitText(document.querySelector('#logo'))
-
     let ctx = gsap.context(() => {
       let tl = gsap.timeline()
 
@@ -37,7 +40,7 @@ const Nav = ({ logo }) => {
       // on initial page load
       tl.set(logoRef, { opacity: 1 })
 
-      tl.from(logoText.chars, {
+      tl.from(fontRef.querySelectorAll('div'), {
         yPercent: 100,
         ease: 'power3.inOut',
         stagger: 0.05,
@@ -106,7 +109,11 @@ const Nav = ({ logo }) => {
 
       <MainLogo ref={(el) => (logoRef = el)}>
         <Logo ref={(el) => (fontRef = el)} id="logo">
-          {logo}
+          {logo.split('').map((letter, index) => (
+            <LetterWrapper key={index}>
+              {letter === ' ' ? '\u00A0' : letter}
+            </LetterWrapper>
+          ))}
         </Logo>
       </MainLogo>
     </>
