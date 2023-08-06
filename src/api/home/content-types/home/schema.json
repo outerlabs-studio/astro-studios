@@ -1,0 +1,66 @@
+{
+  "kind": "singleType",
+  "collectionName": "homes",
+  "info": {
+    "singularName": "home",
+    "pluralName": "homes",
+    "displayName": "home",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "hero": {
+      "displayName": "hero",
+      "type": "component",
+      "repeatable": false,
+      "component": "home.hero",
+      "required": true
+    },
+    "about": {
+      "displayName": "About",
+      "type": "component",
+      "repeatable": false,
+      "component": "home.about",
+      "required": true
+    },
+    "info": {
+      "displayName": "Row",
+      "type": "component",
+      "repeatable": true,
+      "component": "home.row",
+      "required": true,
+      "min": 1
+    },
+    "bear": {
+      "displayName": "Bear",
+      "type": "component",
+      "repeatable": false,
+      "component": "home.bear",
+      "required": true
+    },
+    "scroller": {
+      "displayName": "Scroller",
+      "type": "component",
+      "repeatable": false,
+      "component": "home.scroller",
+      "required": true
+    },
+    "footer": {
+      "displayName": "Footer",
+      "type": "component",
+      "repeatable": false,
+      "component": "home.footer",
+      "required": true
+    },
+    "SEO": {
+      "displayName": "SEO",
+      "type": "component",
+      "repeatable": false,
+      "component": "home.seo",
+      "required": true
+    }
+  }
+}

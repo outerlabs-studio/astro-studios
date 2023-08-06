@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_home_scrollers",
+  "info": {
+    "displayName": "Scroller",
+    "icon": "chartBubble",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "description": {
+      "type": "richtext",
+      "required": true
+    },
+    "marquee": {
+      "type": "string",
+      "required": true
+    },
+    "title": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

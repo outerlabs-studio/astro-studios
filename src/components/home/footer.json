@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_home_footers",
+  "info": {
+    "displayName": "Footer",
+    "icon": "archive",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "text",
+      "required": true
+    }
+  }
+}
