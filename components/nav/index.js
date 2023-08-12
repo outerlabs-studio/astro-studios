@@ -37,7 +37,7 @@ const Nav = ({ logo }) => {
       // we have to do this to prevent the flicker from happening
       // on initial page load
       tl.set(sectionRef, { opacity: 1 })
-      tl.set("#logo", { opacity: 1 })
+      tl.set('#logo', { opacity: 1 })
 
       tl.from(
         fontRef.querySelectorAll('div'),
@@ -95,12 +95,12 @@ const Nav = ({ logo }) => {
             <div />
             <NavLinks ref={(el) => (linksRef = el)}>
               <li>
-                <CustomLink to="#about" className="about">
+                <CustomLink href="#about" className="about">
                   About
                 </CustomLink>
               </li>
               <li>
-                <CustomButton href="/contact">Contact</CustomButton>
+                <CustomButton href="#contact">Contact</CustomButton>
               </li>
             </NavLinks>
           </NavWrapper>

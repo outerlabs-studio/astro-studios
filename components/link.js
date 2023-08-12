@@ -28,10 +28,10 @@ const StyledLink = styled.a`
  * @param {React.ReactNode} props.children - The content of the link.
  * @returns {React.ReactElement} CustomLink component.
  */
-const CustomLink = ({ href, to, target, children, color, ...rest }) => {
-  if (to) {
+const CustomLink = ({ href, target, children, color, ...rest }) => {
+  if (href) {
     return (
-      <Link href={to} passHref legacyBehavior>
+      <Link href={href} passHref legacyBehavior>
         <StyledLink color={color}>{children}</StyledLink>
       </Link>
     )

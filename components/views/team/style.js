@@ -3,11 +3,10 @@ import { TitleHeader, Z, media } from 'styles'
 
 export const StyledSection = styled.section`
   position: relative;
-  padding: 30vw 0;
+  padding: 10vw 0 40vw 0;
   width: 100%;
   text-align: center;
 
-  ${media.tablet`padding: 40vw 0;`}
   ${media.phablet`padding: 20vw 0;`}
 `
 export const SectionHeader = styled.div`

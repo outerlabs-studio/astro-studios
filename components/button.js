@@ -48,7 +48,7 @@ const ButtonButton = styled.button`
  * @returns {React.ReactElement} CustomButton component.
  */
 const CustomButton = (props) => {
-  const { href, to, target, children, ...rest } = props
+  const { href, target, children, ...rest } = props
   const isTouchDevice = useIsTouchDevice()
   const movingContainerRef = useRef(null)
 
@@ -85,17 +85,15 @@ const CustomButton = (props) => {
   }, [])
 
   const ButtonComponent = href ? (
-    <StyledButton
+    <Link
       href={href}
       target={target || '_blank'}
       rel={!target ? 'noopener noreferrer' : undefined}
+      passHref
+      legacyBehavior
       {...rest}
     >
-      {children}
-    </StyledButton>
-  ) : to ? (
-    <Link href={to} passHref>
-      <StyledButton {...rest}>{children}</StyledButton>
+      <StyledButton>{children}</StyledButton>
     </Link>
   ) : (
     <ButtonButton {...rest}>{children}</ButtonButton>

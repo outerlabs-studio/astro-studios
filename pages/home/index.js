@@ -2,6 +2,7 @@ import { useRef, useState } from 'react'
 import { Bear, Footer, Layout } from 'components'
 import {
   About,
+  ContactSection,
   Hero,
   InfoSection,
   ScrollerSection,
@@ -28,6 +29,7 @@ export default function Home({ data }) {
         <ScrollerSection />
       </div>
       <SmallInfoSection />
+      <ContactSection />
       <TeamSection />
       <Footer />
     </Layout>

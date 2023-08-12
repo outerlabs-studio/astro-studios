@@ -82,7 +82,7 @@ export default function CustomHead({
           locale: 'en_US',
           images: [
             {
-              url: image ? image.url : '/og-image.jpg',
+              url: image ? image.url : '/og-image.png',
               width: image.width ? image.width : 1200,
               height: image.height ? image.height : 630,
               alt: title,
