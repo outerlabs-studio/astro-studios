@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import Image from 'next/image'
-import { Container, TitleHeader } from 'styles'
+import { Container, TitleHeader, sizes } from 'styles'
 import {
   FirstImage,
   SecondImage,
@@ -18,8 +18,8 @@ const About = ({ description }) => {
   let timeline = useRef()
   let imageRef = useRef([])
 
-  const isTablet = useMedia('(min-width: 550px)') || true
-  const isPhone = useMedia('(min-width: 420px)') || false
+  const isTablet = useMedia(`(min-width: ${sizes.phablet}px)`) || true
+  const isPhone = useMedia(`(min-width: ${sizes.phone}px)`) || false
 
   useIsomorphicLayoutEffect(() => {
     const ctx = gsap.context(() => {

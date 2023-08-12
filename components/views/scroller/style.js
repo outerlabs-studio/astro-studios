@@ -9,6 +9,10 @@ export const SectionWrapper = styled.section`
   padding-bottom: 40vw;
   z-index: 1;
 
+  #hide {
+    ${media.tablet`display: none;`};
+  }
+
   ${media.tablet`padding-bottom: 60vw;`};
   ${media.phablet`padding-bottom: 80vw;`};
 `
@@ -42,5 +46,5 @@ export const RowText = styled(TitleHeader)`
 `
 export const ParagraphWrapper = styled.div`
   max-width: 20rem;
-  text-align: center;
+  text-align: center
 `

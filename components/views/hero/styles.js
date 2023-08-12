@@ -15,4 +15,6 @@ export const ScrollWrapper = styled.div`
   position: absolute;
   top: 80%;
   transform: translateY(-80%);
+
+  opacity: 0; // reset for initial page load
 `

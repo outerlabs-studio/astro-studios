@@ -7,6 +7,8 @@ export const PageHeader = styled.header`
   width: 100%;
   padding-bottom: 5vw;
   overflow: hidden;
+
+  opacity: 0; // reset for initial page load
 `
 export const NavWrapper = styled.nav`
   position: relative;
@@ -17,29 +19,23 @@ export const NavWrapper = styled.nav`
   padding: 3vw 0 2vw;
 
   ${media.tablet`padding: 5vw 0 4vw;`};
-  ${media.phone`padding: 10vw 0 4vw;`};
-`
-export const InvisWrapper = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  margin-top: 2vw;
-  z-index: ${Z.LOGO};
+  ${media.phone`padding: 7vw 0 4vw;`};
 `
 export const MainLogo = styled(Container)`
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  margin-top: 2vw;
+  margin-top: calc((3vw + 3vw) / 2);
   z-index: ${Z.LOGO};
   overflow: hidden;
 
+  #logo {
+    opacity: 0; // reset for initial page loads
+  }
+
   ${media.tablet`margin-top: 4vw;`};
-  ${media.phone`margin-top: 9vw;`};
-  
-  opacity: 0; // reset for initial page load
+  ${media.phone`margin-top: 6vw;`};
 `
 export const NavLinks = styled.ul`
   display: flex;

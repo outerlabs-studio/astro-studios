@@ -2,9 +2,8 @@ import { useRef } from 'react'
 import CustomButton from 'components/button'
 import CustomLink from 'components/link'
 import gsap from 'gsap'
-import { Container, Logo } from 'styles'
+import { Container, Logo, sizes } from 'styles'
 import {
-  InvisWrapper,
   LetterWrapper,
   LogoWrapper,
   MainLogo,
@@ -23,14 +22,13 @@ const Nav = ({ logo }) => {
   let sectionRef = useRef(null)
   let logoRef = useRef(null)
   let fontRef = useRef(null)
+  let linksRef = useRef(null)
   let letterRef = useRef([])
 
   const root = useRef()
   const { width } = useWindowSize()
 
-  const isDesktop = useMedia('(min-width: 1000px)') || true
-  const isTablet = useMedia('(min-width: 550px)') || false
-  const isMobile = useMedia('(min-width: 330px)') || false
+  const isMobile = useMedia(`(min-width: ${sizes.tiny})px`) || false
 
   useIsomorphicLayoutEffect(() => {
     let ctx = gsap.context(() => {
@@ -38,14 +36,28 @@ const Nav = ({ logo }) => {
 
       // we have to do this to prevent the flicker from happening
       // on initial page load
-      tl.set(logoRef, { opacity: 1 })
+      tl.set(sectionRef, { opacity: 1 })
+      tl.set("#logo", { opacity: 1 })
 
-      tl.from(fontRef.querySelectorAll('div'), {
-        yPercent: 100,
-        ease: 'power3.inOut',
-        stagger: 0.05,
-        delay: 0.5,
-      })
+      tl.from(
+        fontRef.querySelectorAll('div'),
+        {
+          yPercent: 100,
+          ease: 'power3.inOut',
+          stagger: 0.05,
+          delay: 0.5,
+        },
+        0
+      ).from(
+        linksRef.querySelectorAll('li'),
+        {
+          opacity: 0,
+          ease: 'power3.inOut',
+          stagger: 0.05,
+          delay: 0.5,
+        },
+        0
+      )
     })
 
     return () => ctx.revert()
@@ -63,22 +75,10 @@ const Nav = ({ logo }) => {
         },
       })
 
-      tl.to(
-        logoRef,
-        isMobile
-          ? { top: '0%', left: '0%', transform: 'unset' }
-          : { top: '0%', left: '50%' },
-        0
-      ).to(
+      tl.to(logoRef, { top: '0%', left: '0%', transform: 'unset' }, 0).to(
         fontRef,
         {
-          fontSize: isDesktop
-            ? '2vw'
-            : isTablet
-            ? '4vw'
-            : isMobile
-            ? '6vw'
-            : '10vw',
+          fontSize: '24px',
         },
         0
       )
@@ -93,7 +93,7 @@ const Nav = ({ logo }) => {
         <Container>
           <NavWrapper>
             <div />
-            <NavLinks>
+            <NavLinks ref={(el) => (linksRef = el)}>
               <li>
                 <CustomLink to="#about" className="about">
                   About

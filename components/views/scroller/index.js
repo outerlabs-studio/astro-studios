@@ -74,7 +74,7 @@ const ScrollerSection = () => {
             <RowText ml={'-20vw'}>Based in Los</RowText>
           </Parallax>
         </div>
-        <ParagraphWrapper>
+        <ParagraphWrapper id="hide">
           <ArticleBody ref={(el) => (opacityChange.current[0] = el)}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -88,7 +88,7 @@ const ScrollerSection = () => {
           </Parallax>
         </div>
 
-        <ArticleBody ref={(el) => (opacityChange.current[1] = el)}>
+        <ArticleBody ref={(el) => (opacityChange.current[1] = el)} id="hide">
           34.0522° N, 118.2437° W
         </ArticleBody>
 

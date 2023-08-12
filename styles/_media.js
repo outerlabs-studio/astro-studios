@@ -1,12 +1,12 @@
 import { css } from 'styled-components'
 
-const sizes = {
+export const sizes = {
   giant: 1440,
   bigDesktop: 1200,
   desktop: 1000,
   tablet: 820,
   phablet: 500,
-  phone: 420,
+  phone: 440,
   tiny: 330,
 }
 
