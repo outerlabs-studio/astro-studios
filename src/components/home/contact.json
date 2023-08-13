@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_home_contacts",
+  "info": {
+    "displayName": "Contact",
+    "icon": "envelop",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title_line1": {
+      "type": "string",
+      "required": true
+    },
+    "title_line2": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "button": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    }
+  }
+}

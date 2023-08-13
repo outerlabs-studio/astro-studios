@@ -41,7 +41,7 @@
       "component": "home.bear",
       "required": true
     },
-    "scroller": {
+    "team": {
       "displayName": "Scroller",
       "type": "component",
       "repeatable": false,
@@ -60,6 +60,13 @@
       "type": "component",
       "repeatable": false,
       "component": "home.seo",
+      "required": true
+    },
+    "contact": {
+      "displayName": "Contact",
+      "type": "component",
+      "repeatable": false,
+      "component": "home.contact",
       "required": true
     }
   }

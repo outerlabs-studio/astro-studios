@@ -10,6 +10,14 @@
     "title": {
       "type": "text",
       "required": true
+    },
+    "button": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
     }
   }
 }
