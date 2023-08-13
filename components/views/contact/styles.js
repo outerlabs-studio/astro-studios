@@ -81,3 +81,6 @@ export const TextWrapper = styled.div`
   max-width: 35rem;
   margin: 4rem 0;
 `
+export const ButtonWrapper = styled.div`
+  width: fit-content;
+`

@@ -8,6 +8,7 @@ import {
   TextWrapper,
   Card,
   CustomContainer,
+  ButtonWrapper,
 } from './styles'
 import { useIsomorphicLayoutEffect, useMedia } from 'react-use'
 import gsap from 'gsap'
@@ -154,11 +155,11 @@ const ContactSection = ({ data }) => {
               <TextWrapper ref={(el) => (animRow.current[2] = el)}>
                 <ArticleBase>{data.description}</ArticleBase>
               </TextWrapper>
-              <div ref={(el) => (animRow.current[3] = el)}>
+              <ButtonWrapper ref={(el) => (animRow.current[3] = el)}>
                 <CustomButton href={`mailto:${data.email}`}>
                   {data.button}
                 </CustomButton>
-              </div>
+              </ButtonWrapper>
             </div>
           </Parallax>
         </Card>
