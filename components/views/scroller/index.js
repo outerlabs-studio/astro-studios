@@ -11,17 +11,33 @@ const ScrollerSection = () => {
 
   useEffect(() => {
     let ctx = gsap.context(() => {
-      gsap.from(animRow.current, {
-        yPercent: 100,
-        duration: 1,
-        stagger: 0.1,
-        ease: 'power3.out',
+      let tl = gsap.timeline({
         scrollTrigger: {
           trigger: trigger.current,
           start: 'top center',
           toggleActions: 'play none none reverse',
         },
       })
+
+      tl.from(
+        animRow.current,
+        {
+          yPercent: 100,
+          duration: 1,
+          stagger: 0.1,
+          ease: 'power3.out',
+        },
+        0
+      ).from(
+        opacityChange.current,
+        {
+          opacity: 0,
+          duration: 1,
+          stagger: 0.1,
+          ease: 'power3.out',
+        },
+        0
+      )
     })
 
     return () => ctx.revert()
