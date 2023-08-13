@@ -86,21 +86,15 @@ const InfoSection = ({ data }) => {
                       __html: item.subtitle.replace(/\n/g, '<br/>'),
                     }}
                   />
-                  <ReactMarkdown
-                    components={{
-                      p: (props) => (
-                        <ArticleBody
-                          nm
-                          ref={(el) =>
-                            (itemsRef.current[currentIndex + 2] = el)
-                          }
-                          {...props}
-                        />
-                      ),
-                    }}
-                  >
-                    {item.description}
-                  </ReactMarkdown>
+                  <div ref={(el) => (itemsRef.current[currentIndex + 2] = el)}>
+                    <ReactMarkdown
+                      components={{
+                        p: (props) => <ArticleBody nm {...props} />,
+                      }}
+                    >
+                      {item.description}
+                    </ReactMarkdown>
+                  </div>
                 </InformationWrapper>
               </RowWrapper>
               <Line
