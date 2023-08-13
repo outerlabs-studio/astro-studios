@@ -12,3 +12,4 @@ export {
   ArticleBody,
 } from './text'
 export { default as Z } from './z'
+export { default as OverflowWrapper } from './overflow'

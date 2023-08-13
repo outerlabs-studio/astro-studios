@@ -16,8 +16,8 @@ export const SectionWrapper = styled.section`
     min-height: 0;
   `}
 
-  h1 {
-    line-height: 80%;
+  #second {
+    margin-top: -3vw;
   }
 `
 export const CustomContainer = styled(Container)`

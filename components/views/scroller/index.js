@@ -11,15 +11,16 @@ const ScrollerSection = () => {
 
   useEffect(() => {
     let ctx = gsap.context(() => {
-      animRow.current.forEach((el) => {
-        gsap.from(el, {
-          yPercent: 100,
-          scrollTrigger: {
-            trigger: trigger.current,
-            start: 'top center',
-            toggleActions: 'play none none reverse',
-          },
-        })
+      gsap.from(animRow.current, {
+        yPercent: 100,
+        duration: 1,
+        stagger: 0.1,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: trigger.current,
+          start: 'top center',
+          toggleActions: 'play none none reverse',
+        },
       })
     })
 

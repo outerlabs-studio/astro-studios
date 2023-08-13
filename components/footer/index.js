@@ -20,7 +20,7 @@ const Footer = () => {
         scrollTrigger: {
           trigger: footerContainer.current,
           start: 'top+=22.5% bottom',
-          end: 'bottom+=14% bottom',
+          end: '+=80%',
           scrub: true,
         },
       })
