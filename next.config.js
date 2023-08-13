@@ -24,6 +24,9 @@ const nextConfig = {
     styledComponents: true,
     removeConsole: process.env.NODE_ENV !== 'development',
   },
+  images: {
+    domains: [process.env.NEXT_PUBLIC_STRAPI_HOSTNAME],
+  },
   webpack: (config, { dev, isServer }) => {
     // Replace React with Preact only in client production build
     if (!dev && !isServer) {

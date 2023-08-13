@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Z, media } from 'styles'
+import { Container, Z, media } from 'styles'
 
 export const SectionWrapper = styled.section`
   position: relative;
@@ -11,9 +11,13 @@ export const SectionWrapper = styled.section`
   padding-bottom: 20rem;
   z-index: ${Z.NORMAL_SECTION};
 `
+export const CustomContainer = styled(Container)`
+  width: 100%;
+`
 export const ItemWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
 `
 export const RowWrapper = styled.div`
   display: flex;

@@ -13,7 +13,7 @@ import { Parallax } from 'components'
 import { gsap } from 'gsap'
 import { useIsomorphicLayoutEffect, useMedia } from 'react-use'
 
-const About = ({ description }) => {
+const About = ({ description, images }) => {
   let trigger = useRef()
   let timeline = useRef()
   let imageRef = useRef([])
@@ -67,8 +67,11 @@ const About = ({ description }) => {
         <FirstImage ref={(el) => (imageRef.current[0] = el)}>
           <Parallax speed={isPhone ? -1.5 : -2.5} trigger={trigger}>
             <Image
-              src="/images/blue.png"
-              alt="what does getting cheated on feel like?"
+              src={
+                process.env.NEXT_PUBLIC_STRAPI_API_URL +
+                images[0].attributes.url
+              }
+              alt={images[0].attributes.alternativeText}
               quality={90}
               fill
             />
@@ -77,8 +80,11 @@ const About = ({ description }) => {
         <SecondImage ref={(el) => (imageRef.current[1] = el)}>
           <Parallax speed={isPhone ? 0.5 : 1.5} trigger={trigger}>
             <Image
-              src="/images/red.png"
-              alt="what does getting cheated on feel like?"
+              src={
+                process.env.NEXT_PUBLIC_STRAPI_API_URL +
+                images[1].attributes.url
+              }
+              alt={images[1].attributes.alternativeText}
               quality={90}
               fill
             />
@@ -87,8 +93,11 @@ const About = ({ description }) => {
         <ThirdImage ref={(el) => (imageRef.current[2] = el)}>
           <Parallax speed={isPhone ? -1.5 : -2.5} trigger={trigger}>
             <Image
-              src="/images/purple.png"
-              alt="what does getting cheated on feel like?"
+              src={
+                process.env.NEXT_PUBLIC_STRAPI_API_URL +
+                images[2].attributes.url
+              }
+              alt={images[2].attributes.alternativeText}
               quality={90}
               fill
             />
@@ -97,8 +106,11 @@ const About = ({ description }) => {
         <FourthImage ref={(el) => (imageRef.current[3] = el)}>
           <Parallax speed={isPhone ? -1 : -2} trigger={trigger}>
             <Image
-              src="/images/pink.png"
-              alt="what does getting cheated on feel like?"
+              src={
+                process.env.NEXT_PUBLIC_STRAPI_API_URL +
+                images[3].attributes.url
+              }
+              alt={images[3].attributes.alternativeText}
               quality={90}
               fill
             />

@@ -10,7 +10,7 @@ import {
 import { gsap } from 'gsap'
 import { CustomButton, CustomLink } from 'components'
 
-const Footer = () => {
+const Footer = ({ data }) => {
   let footerContainer = useRef(null)
 
   useEffect(() => {
@@ -32,23 +32,23 @@ const Footer = () => {
   return (
     <FooterWrapper>
       <ContentWrapper ref={footerContainer}>
-        <TitleSubheader>
-          we’re feeling a<br />
-          bit silly. wbu?
-        </TitleSubheader>
+        <TitleSubheader
+          dangerouslySetInnerHTML={{
+            __html: data.title.replace(/\n/g, '<br/>'),
+          }}
+        ></TitleSubheader>
         <ButtonWrapper>
-          <CustomButton href="/contact">Let's talk instead</CustomButton>
+          <CustomButton href="#contact">{data.button}</CustomButton>
         </ButtonWrapper>
       </ContentWrapper>
       <LineWrapper>
         <Container>
           <LineContentWrapper>
-            <ArticleBase>&copy; Astro Studios 2023</ArticleBase>
-            <CustomLink
-              href="mailto:hello@astrostudios.xyz"
-              color="var(--white)"
-            >
-              hello@astrostudios.xyz
+            <ArticleBase>
+              &copy; Astro Studios {new Date().getFullYear()}
+            </ArticleBase>
+            <CustomLink href={`mailto:${data.email}`} color="var(--white)">
+              {data.email}
             </CustomLink>
           </LineContentWrapper>
         </Container>

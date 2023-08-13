@@ -14,31 +14,29 @@ import {
 } from './style'
 import { Marquee, Parallax } from 'components'
 
-const TeamSection = () => {
+const TeamSection = ({ data }) => {
   let target = useRef()
 
   return (
     <StyledSection ref={target}>
-      <SectionHeader>
-        <TitleWrapper>
-          <TitleSubtile>
-            built different,
-            <br />
-            just like you
-          </TitleSubtile>
-        </TitleWrapper>
-        <TextWrapper>
-          <ArticleBody>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam.
-          </ArticleBody>
-        </TextWrapper>
-      </SectionHeader>
+      <Container>
+        <SectionHeader>
+          <TitleWrapper>
+            <TitleSubtile
+              dangerouslySetInnerHTML={{
+                __html: data.title.replace(/\n/g, '<br/>'),
+              }}
+            />
+          </TitleWrapper>
+          <TextWrapper>
+            <ArticleBody>{data.description}</ArticleBody>
+          </TextWrapper>
+        </SectionHeader>
+      </Container>
       <Line1>
         <Marquee duration={10}>
           <CustomScrollerText>
-            For teens by teens - For teens by teens -
+            {data.marquee} {data.marquee}
           </CustomScrollerText>
         </Marquee>
       </Line1>
@@ -46,8 +44,11 @@ const TeamSection = () => {
         <Parallax speed={2} trigger={target}>
           <RightImage>
             <Image
-              src="/images/2.png"
-              alt="2"
+              src={
+                process.env.NEXT_PUBLIC_STRAPI_API_URL +
+                data.right_image.data.attributes.url
+              }
+              alt={data.right_image.data.attributes.alternativeText}
               quality={90}
               style={{ borderRadius: 'inherit', objectFit: 'contain' }}
               fill
@@ -57,8 +58,11 @@ const TeamSection = () => {
         <Parallax speed={-2} trigger={target}>
           <LeftImage>
             <Image
-              src="/images/1.png"
-              alt="1"
+              src={
+                process.env.NEXT_PUBLIC_STRAPI_API_URL +
+                data.left_image.data.attributes.url
+              }
+              alt={data.left_image.data.attributes.alternativeText}
               quality={90}
               style={{ borderRadius: 'inherit', objectFit: 'contain' }}
               fill
@@ -70,7 +74,7 @@ const TeamSection = () => {
         <Line2>
           <Marquee duration={10}>
             <CustomScrollerText>
-              For teens by teens - For teens by teens -
+              {data.marquee} {data.marquee}
             </CustomScrollerText>
           </Marquee>
         </Line2>

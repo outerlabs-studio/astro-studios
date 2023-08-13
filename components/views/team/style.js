@@ -10,9 +10,7 @@ export const StyledSection = styled.section`
   ${media.phablet`padding: 20vw 0;`}
 `
 export const SectionHeader = styled.div`
-  padding-bottom: 10vw;
-
-  ${media.desktop`padding-bottom: 60vw;`}
+  ${media.desktop`padding-bottom: 15vw;`}
   ${media.phablet`
     padding-top: 100vw;
     padding-bottom: 20vw;
@@ -33,7 +31,7 @@ const Line = styled.div`
   color: var(--white);
   width: 117%;
   position: absolute;
-  top: 50%;
+  top: 45%;
   transform: translateY(-50%);
 
   ${media.phablet`margin-top: -40vw;`};

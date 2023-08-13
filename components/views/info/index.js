@@ -1,16 +1,18 @@
-import { ArticleBody, ArticleSubtitle, Container, TitleSubheader } from 'styles'
+import { ArticleBody, ArticleSubtitle, TitleSubheader } from 'styles'
 import {
   InformationWrapper,
   ItemWrapper,
   Line,
   RowWrapper,
   SectionWrapper,
+  CustomContainer,
 } from './style'
 import { gsap } from 'gsap'
 import { useEffect, useRef } from 'react'
 import { useIsomorphicLayoutEffect } from 'react-use'
+import { ReactMarkdown } from 'react-markdown/lib/react-markdown'
 
-const InfoSection = () => {
+const InfoSection = ({ data }) => {
   let sectionRef = useRef()
   let itemsRef = useRef([])
 
@@ -63,123 +65,52 @@ const InfoSection = () => {
 
   return (
     <SectionWrapper ref={sectionRef} className="change-bg">
-      <Container fluid>
-        <ItemWrapper>
-          <RowWrapper>
-            <TitleSubheader nm ref={(el) => (itemsRef.current[0] = el)}>
-              growth
-            </TitleSubheader>
-            <InformationWrapper>
-              <ArticleSubtitle
-                m={'0 0 2rem 0'}
-                ref={(el) => (itemsRef.current[1] = el)}
-              >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore.
-              </ArticleSubtitle>
-              <ArticleBody nm ref={(el) => (itemsRef.current[2] = el)}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
-              </ArticleBody>
-            </InformationWrapper>
-          </RowWrapper>
-          <Line id="break-line" ref={(el) => (itemsRef.current[3] = el)} />
-        </ItemWrapper>
-        <ItemWrapper>
-          <RowWrapper>
-            <TitleSubheader nm ref={(el) => (itemsRef.current[4] = el)}>
-              people
-            </TitleSubheader>
-            <InformationWrapper>
-              <ArticleSubtitle
-                m={'0 0 2rem 0'}
-                ref={(el) => (itemsRef.current[5] = el)}
-              >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore.
-              </ArticleSubtitle>
-              <ArticleBody nm ref={(el) => (itemsRef.current[6] = el)}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
-              </ArticleBody>
-            </InformationWrapper>
-          </RowWrapper>
-          <Line id="break-line" ref={(el) => (itemsRef.current[7] = el)} />
-        </ItemWrapper>
-        <ItemWrapper>
-          <RowWrapper>
-            <TitleSubheader nm ref={(el) => (itemsRef.current[8] = el)}>
-              comfort
-            </TitleSubheader>
-            <InformationWrapper>
-              <ArticleSubtitle
-                m={'0 0 2rem 0'}
-                ref={(el) => (itemsRef.current[9] = el)}
-              >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore.
-              </ArticleSubtitle>
-              <ArticleBody nm ref={(el) => (itemsRef.current[10] = el)}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
-              </ArticleBody>
-            </InformationWrapper>
-          </RowWrapper>
-          <Line id="break-line" ref={(el) => (itemsRef.current[11] = el)} />
-        </ItemWrapper>
-        <ItemWrapper>
-          <RowWrapper>
-            <TitleSubheader nm ref={(el) => (itemsRef.current[12] = el)}>
-              authentic
-            </TitleSubheader>
-            <InformationWrapper>
-              <ArticleSubtitle
-                m={'0 0 2rem 0'}
-                ref={(el) => (itemsRef.current[13] = el)}
-              >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore.
-              </ArticleSubtitle>
-              <ArticleBody nm ref={(el) => (itemsRef.current[14] = el)}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
-              </ArticleBody>
-            </InformationWrapper>
-          </RowWrapper>
-          <Line id="break-line" ref={(el) => (itemsRef.current[15] = el)} />
-        </ItemWrapper>
-        <ItemWrapper>
-          <RowWrapper>
-            <TitleSubheader nm ref={(el) => (itemsRef.current[16] = el)}>
-              innovative
-            </TitleSubheader>
-            <InformationWrapper>
-              <ArticleSubtitle
-                m={'0 0 2rem 0'}
-                ref={(el) => (itemsRef.current[17] = el)}
-              >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore.
-              </ArticleSubtitle>
-              <ArticleBody nm ref={(el) => (itemsRef.current[18] = el)}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
-              </ArticleBody>
-            </InformationWrapper>
-          </RowWrapper>
-          <Line id="break-line" ref={(el) => (itemsRef.current[19] = el)} />
-        </ItemWrapper>
-      </Container>
+      <CustomContainer fluid>
+        {data.map((item, i) => {
+          const currentIndex = i * 4 // Increment by 4 for each iteration
+
+          return (
+            <ItemWrapper key={i}>
+              <RowWrapper>
+                <TitleSubheader
+                  nm
+                  ref={(el) => (itemsRef.current[currentIndex] = el)}
+                >
+                  {item.title}
+                </TitleSubheader>
+                <InformationWrapper>
+                  <ArticleSubtitle
+                    m={'0 0 2rem 0'}
+                    ref={(el) => (itemsRef.current[currentIndex + 1] = el)}
+                    dangerouslySetInnerHTML={{
+                      __html: item.subtitle.replace(/\n/g, '<br/>'),
+                    }}
+                  />
+                  <ReactMarkdown
+                    components={{
+                      p: (props) => (
+                        <ArticleBody
+                          nm
+                          ref={(el) =>
+                            (itemsRef.current[currentIndex + 2] = el)
+                          }
+                          {...props}
+                        />
+                      ),
+                    }}
+                  >
+                    {item.description}
+                  </ReactMarkdown>
+                </InformationWrapper>
+              </RowWrapper>
+              <Line
+                id="break-line"
+                ref={(el) => (itemsRef.current[currentIndex + 3] = el)}
+              />
+            </ItemWrapper>
+          )
+        })}
+      </CustomContainer>
     </SectionWrapper>
   )
 }

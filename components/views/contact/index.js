@@ -15,7 +15,7 @@ import StarIcon from 'components/star'
 import CustomButton from 'components/button'
 import Parallax from 'components/parallax'
 
-const ContactSection = () => {
+const ContactSection = ({ data }) => {
   let sectionRef = useRef(null)
   let ferrisWheelRef = useRef(null)
   let itemRef = useRef([])
@@ -140,7 +140,7 @@ const ContactSection = () => {
             <div>
               <OverflowWrapper>
                 <TitleHeader ref={(el) => (animRow.current[0] = el)}>
-                  Tell us
+                  {data.title_line1}
                 </TitleHeader>
               </OverflowWrapper>
               <OverflowWrapper>
@@ -148,19 +148,16 @@ const ContactSection = () => {
                   ref={(el) => (animRow.current[1] = el)}
                   id="second"
                 >
-                  your story
+                  {data.title_line2}
                 </TitleHeader>
               </OverflowWrapper>
               <TextWrapper ref={(el) => (animRow.current[2] = el)}>
-                <ArticleBase>
-                  Want to share your story with the world? Fill out this form
-                  and we'll reach out when we have a show we think you'd be a
-                  good fit for. No experience necessary! (Must be based in LA or
-                  NY)
-                </ArticleBase>
+                <ArticleBase>{data.description}</ArticleBase>
               </TextWrapper>
               <div ref={(el) => (animRow.current[3] = el)}>
-                <CustomButton href="/contact">Contact</CustomButton>
+                <CustomButton href={`mailto:${data.email}`}>
+                  {data.button}
+                </CustomButton>
               </div>
             </div>
           </Parallax>
