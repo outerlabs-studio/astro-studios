@@ -22,12 +22,14 @@ const ContactSection = ({ data }) => {
   let itemRef = useRef([])
   let animRow = useRef([])
 
+  const huge = useMedia(`(min-width: 1700px)`) || false // custom size
   const desktop = useMedia(`(max-width: ${sizes.desktop}px)`) || false
   const tablet = useMedia(`(max-width: ${sizes.tablet}px)`) || false
 
   useIsomorphicLayoutEffect(() => {
+    console.log(huge)
     let ctx = gsap.context(() => {
-      let radius = tablet ? 200 : desktop ? 280 : 360
+      let radius = huge ? 450 : tablet ? 200 : desktop ? 280 : 360
 
       let tl = gsap.timeline({
         scrollTrigger: {
@@ -73,7 +75,7 @@ const ContactSection = ({ data }) => {
     })
 
     return () => ctx.revert()
-  }, [desktop, tablet])
+  }, [huge, desktop, tablet])
 
   useIsomorphicLayoutEffect(() => {
     let ctx = gsap.context(() => {
