@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 import { useLenis } from '@studio-freight/react-lenis'
-import { raf } from '@studio-freight/tempus'
+import Tempus from '@studio-freight/tempus'
 import GlobalStyle from 'styles/_global'
 import { RealViewport } from 'lib'
 
@@ -13,7 +13,7 @@ if (typeof window !== 'undefined') {
   // merge rafs
   gsap.ticker.lagSmoothing(0)
   gsap.ticker.remove(gsap.updateRoot)
-  raf.add((time) => {
+  Tempus.add((time) => {
     gsap.updateRoot(time / 1000)
   }, 0)
 
