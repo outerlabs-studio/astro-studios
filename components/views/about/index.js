@@ -53,6 +53,13 @@ const About = ({ description, images }) => {
         { color: 'rgb(251, 251, 251)' },
         0
       )
+
+      tl.fromTo(
+        '#nav-link',
+        { color: 'rgb(13, 13, 13)' },
+        { color: 'rgb(251, 251, 251)' },
+        0
+      )
     })
 
     return () => ctx.revert()

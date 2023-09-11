@@ -18,8 +18,7 @@ const InfoSection = ({ data }) => {
 
   useIsomorphicLayoutEffect(() => {
     let ctx = gsap.context(() => {
-      gsap.to('#logo', {
-        color: 'rgb(1, 20, 223)',
+      let tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
           start: 'bottom top+=30%',
@@ -28,6 +27,14 @@ const InfoSection = ({ data }) => {
           invalidateOnRefresh: true,
         },
       })
+      tl.to(
+        '#logo',
+        {
+          color: 'rgb(1, 20, 223)',
+        },
+        0
+      )
+      tl.to('#nav-link', { color: 'rgb(13, 13, 13)' }, 0)
     })
 
     return () => ctx.revert()

@@ -95,7 +95,7 @@ const Nav = ({ logo }) => {
             <div />
             <NavLinks ref={(el) => (linksRef = el)}>
               <li>
-                <CustomLink href="#about" className="about">
+                <CustomLink id="nav-link" href="#about" className="about">
                   About
                 </CustomLink>
               </li>
