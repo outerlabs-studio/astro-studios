@@ -93,8 +93,7 @@ const ScrollerSection = () => {
         </div>
         <ParagraphWrapper id="hide">
           <ArticleBody ref={(el) => (opacityChange.current[0] = el)}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Guiding and supporting teenagers through the power of media.
           </ArticleBody>
         </ParagraphWrapper>
       </RowWrapper>
