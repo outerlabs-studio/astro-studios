@@ -33,6 +33,7 @@ const Line = styled.div`
   position: absolute;
   top: 45%;
   transform: translateY(-50%);
+  margin-left: -8%;
 
   ${media.phablet`margin-top: -40vw;`};
 `
@@ -60,12 +61,10 @@ export const RightImage = styled(ImageWrapper)`
 `
 export const Line1 = styled(Line)`
   transform: rotate(-25deg);
-  margin-left: -8%;
   z-index: 3;
 `
 export const Line2 = styled(Line)`
   transform: rotate(25deg);
-  margin-left: -8%;
   z-index: 0;
 `
 export const CustomScrollerText = styled(TitleHeader)`

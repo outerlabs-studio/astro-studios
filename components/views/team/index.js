@@ -20,18 +20,13 @@ const TeamSection = ({ data }) => {
   return (
     <StyledSection ref={target}>
       <Container>
-        <SectionHeader>
-          <TitleWrapper>
-            <TitleSubtile
-              dangerouslySetInnerHTML={{
-                __html: data.title.replace(/\n/g, '<br/>'),
-              }}
-            />
-          </TitleWrapper>
-          <TextWrapper>
-            <ArticleBody>{data.description}</ArticleBody>
-          </TextWrapper>
-        </SectionHeader>
+        <TitleWrapper>
+          <TitleSubtile
+            dangerouslySetInnerHTML={{
+              __html: data.title.replace(/\n/g, '<br/>'),
+            }}
+          />
+        </TitleWrapper>
       </Container>
       <Line1>
         <Marquee duration={10}>
@@ -49,9 +44,9 @@ const TeamSection = ({ data }) => {
                 data.right_image.data.attributes.url
               }
               alt={data.right_image.data.attributes.alternativeText}
-              quality={90}
-              style={{ borderRadius: 'inherit', objectFit: 'contain' }}
+              sizes="(min-width: 520px) 20vw, 40vw"
               fill
+              objectFit="cover"
             />
           </RightImage>
         </Parallax>
@@ -63,9 +58,9 @@ const TeamSection = ({ data }) => {
                 data.left_image.data.attributes.url
               }
               alt={data.left_image.data.attributes.alternativeText}
-              quality={90}
-              style={{ borderRadius: 'inherit', objectFit: 'contain' }}
+              sizes="(min-width: 520px) 20vw, 40vw"
               fill
+              objectFit="cover"
             />
           </LeftImage>
         </Parallax>
@@ -79,6 +74,9 @@ const TeamSection = ({ data }) => {
           </Marquee>
         </Line2>
       </Parallax>
+      <TextWrapper>
+        <ArticleBody>{data.description}</ArticleBody>
+      </TextWrapper>
     </StyledSection>
   )
 }
