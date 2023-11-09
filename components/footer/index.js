@@ -44,9 +44,15 @@ const Footer = ({ data }) => {
       <LineWrapper>
         <Container>
           <LineContentWrapper>
-            <ArticleBase>
-              &copy; Astro Studios {new Date().getFullYear()}
-            </ArticleBase>
+            <div className="creds">
+              <ArticleBase>Crafted by&nbsp;</ArticleBase>
+              <CustomLink
+                href={'https://outerlabs.studio'}
+                color="var(--white)"
+              >
+                Outer Labs
+              </CustomLink>
+            </div>
             <CustomLink href={`mailto:${data.email}`} color="var(--white)">
               {data.email}
             </CustomLink>

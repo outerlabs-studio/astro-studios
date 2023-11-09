@@ -41,5 +41,9 @@ export const LineContentWrapper = styled.div`
   justify-content: space-between;
   color: var(--white);
 
+  .creds {
+    display: flex;
+  }
+
   ${media.phone`flex-direction: column;`};
 `

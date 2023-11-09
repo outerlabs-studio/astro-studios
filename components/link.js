@@ -3,18 +3,27 @@
  * @desc A custom link component with styled anchor tags and Next.js Link integration.
  */
 
-import React from 'react'
+import React, { useCallback, useRef } from 'react'
 import Link from 'next/link'
 import styled from 'styled-components'
+import { gsap } from 'gsap'
+import { useIsomorphicLayoutEffect } from 'react-use'
 
 const StyledLink = styled.a`
   font-family: var(--font-text);
+  display: inline-flex;
+  flex-direction: column;
   font-size: 18px;
   font-weight: 500;
   line-height: 130%;
   text-decoration: none;
   color: ${(props) => props.color || 'var(--black)'};
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
+`
+const StyledSpan = styled.div`
+  position: absolute;
 `
 
 /**
@@ -29,15 +38,24 @@ const StyledLink = styled.a`
  * @returns {React.ReactElement} CustomLink component.
  */
 const CustomLink = ({ href, target, children, color, ...rest }) => {
-  if (href) {
-    return (
-      <Link href={href} passHref legacyBehavior>
-        <StyledLink color={color} {...rest}>
-          {children}
-        </StyledLink>
-      </Link>
-    )
-  }
+  let line1 = useRef(null)
+  let line2 = useRef(null)
+  const tl = useRef()
+
+  useIsomorphicLayoutEffect(() => {
+    tl.current = gsap
+      .timeline()
+      .set(line2, { yPercent: -100 })
+      .to(line1, { yPercent: 100, duration: 0.5, ease: 'power3.inOut' }, 0)
+      .to(line2, { yPercent: 0, duration: 0.5, ease: 'power3.inOut' }, 0)
+  }, [])
+
+  const handleMouseEnter = useCallback(() => {
+    tl.current.reverse()
+  })
+  const handleMouseLeave = useCallback(() => {
+    tl.current.play()
+  })
 
   const linkProps = {
     href,
@@ -47,7 +65,22 @@ const CustomLink = ({ href, target, children, color, ...rest }) => {
     ...rest,
   }
 
-  return <StyledLink {...linkProps}>{children}</StyledLink>
+  if (href) {
+    return (
+      <Link href={href} passHref legacyBehavior>
+        <StyledLink
+          {...linkProps}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
+          <div ref={(el) => (line1 = el)}>{children}</div>
+          <StyledSpan ref={(el) => (line2 = el)}>{children}</StyledSpan>
+        </StyledLink>
+      </Link>
+    )
+  }
+
+  return <StyledLink>{children}</StyledLink>
 }
 
 export default CustomLink
