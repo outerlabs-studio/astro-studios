@@ -14,7 +14,7 @@ export const StyledSection = styled.section`
   `}
 `
 export const TitleWrapper = styled.div`
-  max-width: 27rem;
+  max-width: 35rem;
   margin: 0 auto;
 
   ${media.phablet`margin: 0;`}
