@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import Image from 'next/image'
 import { ArticleBody, Container, TitleSubtile, TitleHeader } from 'styles'
 import {
@@ -13,9 +13,17 @@ import {
   RightImage,
 } from './style'
 import { Marquee, Parallax } from 'components'
+import Ukiyo from 'ukiyojs'
 
 const TeamSection = ({ data }) => {
   let target = useRef()
+
+  useEffect(() => {
+    const els = document.querySelectorAll('.ukiyo')
+    els.forEach((el) => {
+      const parallax = new Ukiyo(el, { scale: 1.1 })
+    })
+  }, [])
 
   return (
     <StyledSection ref={target}>
@@ -50,6 +58,7 @@ const TeamSection = ({ data }) => {
               sizes="(min-width: 520px) 20vw, 40vw"
               fill
               objectFit="cover"
+              className="ukiyo"
             />
           </RightImage>
         </Parallax>
@@ -64,6 +73,7 @@ const TeamSection = ({ data }) => {
               sizes="(min-width: 520px) 20vw, 40vw"
               fill
               objectFit="cover"
+              className="ukiyo"
             />
           </LeftImage>
         </Parallax>
