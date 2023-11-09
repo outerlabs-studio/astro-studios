@@ -27,16 +27,19 @@ const TeamSection = ({ data }) => {
             }}
           />
         </TitleWrapper>
+        <TextWrapper>
+          <ArticleBody>{data.description}</ArticleBody>
+        </TextWrapper>
       </Container>
       <Line1>
         <Marquee duration={10}>
           <CustomScrollerText>
-            {data.marquee} {data.marquee}
+            {data.marquee}&nbsp;{data.marquee}&nbsp;
           </CustomScrollerText>
         </Marquee>
       </Line1>
       <Container fluid>
-        <Parallax speed={2} trigger={target}>
+        <Parallax speed={1.5} trigger={target}>
           <RightImage>
             <Image
               src={
@@ -69,14 +72,11 @@ const TeamSection = ({ data }) => {
         <Line2>
           <Marquee duration={10}>
             <CustomScrollerText>
-              {data.marquee} {data.marquee}
+              {data.marquee}&nbsp;{data.marquee}&nbsp;
             </CustomScrollerText>
           </Marquee>
         </Line2>
       </Parallax>
-      <TextWrapper>
-        <ArticleBody>{data.description}</ArticleBody>
-      </TextWrapper>
     </StyledSection>
   )
 }

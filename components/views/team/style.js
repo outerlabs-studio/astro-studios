@@ -7,7 +7,7 @@ export const StyledSection = styled.section`
   width: 100%;
   text-align: center;
 
-  ${media.phablet`padding: 20vw 0;`}
+  ${media.phablet`padding: 40vw 0;`}
 `
 export const SectionHeader = styled.div`
   ${media.desktop`padding-bottom: 15vw;`}
@@ -19,11 +19,18 @@ export const SectionHeader = styled.div`
 export const TitleWrapper = styled.div`
   margin: 0 auto;
   color: var(--blue);
+
+  ${media.phablet`margin-top: -20vw;`}
 `
 export const TextWrapper = styled.div`
-  max-width: 23rem;
+  max-width: 35rem;
   margin: 0 auto;
   padding-top: 1.25rem;
+
+  ${media.phablet`
+    max-width: 100%;
+    margin-top: 95vw;
+  `}
 `
 const Line = styled.div`
   position: relative;
@@ -35,7 +42,7 @@ const Line = styled.div`
   transform: translateY(-50%);
   margin-left: -8%;
 
-  ${media.phablet`margin-top: -40vw;`};
+  /* ${media.phablet`margin-top: -40vw;`}; */
 `
 const ImageWrapper = styled.div`
   position: absolute;
@@ -43,6 +50,10 @@ const ImageWrapper = styled.div`
   transform: translateY(-40%);
   width: 20vw;
   height: 30vw;
+
+  img {
+    border-radius: 50px;
+  }
 
   ${media.phablet`
     width: 40vw;

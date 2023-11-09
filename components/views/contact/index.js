@@ -27,7 +27,6 @@ const ContactSection = ({ data }) => {
   const tablet = useMedia(`(max-width: ${sizes.tablet}px)`) || false
 
   useIsomorphicLayoutEffect(() => {
-    console.log(huge)
     let ctx = gsap.context(() => {
       let radius = huge ? 450 : tablet ? 200 : desktop ? 280 : 360
 
