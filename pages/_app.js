@@ -5,6 +5,7 @@ import { useLenis } from '@studio-freight/react-lenis'
 import Tempus from '@studio-freight/tempus'
 import GlobalStyle from 'styles/_global'
 import { RealViewport } from 'lib'
+import { Analytics } from '@vercel/analytics/react'
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger)
@@ -53,6 +54,7 @@ function App({ Component, pageProps }) {
 
       <RealViewport />
       <Component {...pageProps} />
+      <Analytics />
     </>
   )
 }
