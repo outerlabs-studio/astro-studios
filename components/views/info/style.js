@@ -7,8 +7,7 @@ export const SectionWrapper = styled.section`
   display: flex;
   flex-direction: column;
   color: var(--white);
-  padding-top: 15vh;
-  padding-bottom: 20rem;
+  padding: 25vh 0;
   z-index: ${Z.NORMAL_SECTION};
 `
 export const CustomContainer = styled(Container)`

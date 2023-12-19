@@ -21,8 +21,8 @@ const InfoSection = ({ data }) => {
       let tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: 'bottom top+=30%',
-          end: 'bottom+=20% center',
+          start: 'bottom top',
+          end: 'bottom center',
           scrub: true,
           invalidateOnRefresh: true,
         },
@@ -53,17 +53,6 @@ const InfoSection = ({ data }) => {
             scrub: true,
           },
         })
-      })
-
-      gsap.to(sectionRef.current, {
-        paddingBottom: '5rem',
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'center top',
-          end: 'bottom top',
-          scrub: true,
-          pinSpacing: false,
-        },
       })
     })
 

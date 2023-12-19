@@ -16,11 +16,11 @@ const Footer = ({ data }) => {
   useEffect(() => {
     let ctx = gsap.context(() => {
       gsap.from(footerContainer.current, {
-        yPercent: -50,
+        yPercent: -90,
         scrollTrigger: {
           trigger: footerContainer.current,
-          start: 'top+=22.5% bottom',
-          end: '+=80%',
+          start: 'top bottom',
+          end: 'bottom+=90% bottom',
           scrub: true,
         },
       })

@@ -43,9 +43,10 @@ const Nav = ({ logo }) => {
         fontRef.querySelectorAll('div'),
         {
           yPercent: 100,
-          ease: 'power3.inOut',
-          stagger: 0.05,
+          duration: 1,
+          stagger: 0.03,
           delay: 0.5,
+          ease: 'power3.inOut',
         },
         0
       ).from(
