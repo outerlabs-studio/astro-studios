@@ -6,11 +6,12 @@ export const SectionWrapper = styled.section`
   overflow-x: hidden;
   width: 100%;
   min-height: 1000px;
-  padding: 20rem 0 15rem 0;
+  padding: 20vw 0 15vw 0;
   z-index: ${Z.NORMAL_SECTION};
   display: flex;
   align-items: center;
 
+  ${media.desktop`padding: 20rem 0 15rem 0;`}
   ${media.phablet`
     padding: 10vw 0;
     min-height: 0;
@@ -30,12 +31,16 @@ export const FerrisWheel = styled.div`
   right: -15%;
   color: var(--blue);
   transform-origin: center;
-  width: 750px;
-  height: 750px;
+  width: 75vw;
+  height: 75vw;
   flex-shrink: 0;
 
   ${media.bigDesktop`right: -30%;`}
-  ${media.desktop`top: 16%;`}
+  ${media.desktop`
+    width: 750px;
+    height: 750px;
+    top: 16%;
+  `}
   ${media.tablet`right: -30%;`}
   ${media.phablet`display: none;`};
 `
@@ -59,14 +64,18 @@ export const Card = styled.div`
   display: flex;
   flex-direction: column;
   max-width: 70%;
-  padding: 6rem 5rem;
-  border-radius: 8rem;
+  padding: 10vw 5vw;
+  border-radius: 8vw;
   background-color: var(--blue);
   color: var(--white);
   z-index: 2;
   mix-blend-mode: difference;
   margin-left: 5rem;
 
+  ${media.desktop`
+    padding: 6rem 5rem;
+    border-radius: 8rem;
+  `}
   ${media.giant`margin-left: 0;`}
   ${media.tablet`
     max-width: 100%;
@@ -78,8 +87,13 @@ export const Card = styled.div`
   `}
 `
 export const TextWrapper = styled.div`
-  max-width: 35rem;
-  margin: 4rem 0;
+  max-width: 35vw;
+  margin: 4vw 0;
+
+  ${media.desktop`
+    max-width: 35rem;
+    margin: 4rem 0;
+  `}
 `
 export const ButtonWrapper = styled.div`
   width: fit-content;

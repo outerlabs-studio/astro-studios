@@ -23,21 +23,28 @@ export const RowWrapper = styled.div`
   justify-content: space-between;
   align-items: start;
   width: 100%;
-  padding-top: 10rem;
+  padding-top: 10vw;
 
+  ${media.desktop`padding-top: 10rem;`}
   ${media.phablet`flex-direction: column;`};
 `
 export const InformationWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 37rem;
-  padding-left: 4rem;
+  max-width: 37vw;
+  padding-left: 4vw;
 
+  ${media.desktop`
+    max-width: 37rem;
+    padding-left: 4rem;
+  `}
   ${media.phablet`padding: 2rem 0 0 0;`};
 `
 export const Line = styled.div`
   background-color: var(--white);
   height: 2px;
   width: 100%;
-  margin-top: 5rem;
+  margin-top: 5vw;
+
+  ${media.desktop`margin-top: 5rem;`}
 `

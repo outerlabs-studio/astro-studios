@@ -5,7 +5,7 @@ export const SectionWrapper = styled.section`
   position: relative;
   overflow: hidden;
   width: 100%;
-  padding-top: 10rem;
+  padding-top: 15vw;
   padding-bottom: 40vw;
   z-index: 1;
 
@@ -13,6 +13,7 @@ export const SectionWrapper = styled.section`
     ${media.tablet`display: none;`};
   }
 
+  ${media.desktop`padding-top: 10rem;`}
   ${media.tablet`padding-bottom: 60vw;`};
   ${media.phablet`padding-bottom: 80vw;`};
 `
@@ -45,6 +46,8 @@ export const RowText = styled(TitleHeader)`
   margin-right: ${({ mr }) => (mr ? mr : 0)}!important;
 `
 export const ParagraphWrapper = styled.div`
-  max-width: 20rem;
-  text-align: center
+  max-width: 20vw;
+  text-align: center;
+
+  ${media.desktop`max-width: 20rem;`}
 `

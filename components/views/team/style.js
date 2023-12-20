@@ -23,10 +23,14 @@ export const TitleWrapper = styled.div`
   ${media.phablet`margin-top: -20vw;`}
 `
 export const TextWrapper = styled.div`
-  max-width: 35rem;
+  max-width: 35vw;
   margin: 0 auto;
-  padding-top: 1.25rem;
+  padding-top: 1.5vw;
 
+  ${media.desktop`
+    padding-top: 1.25rem;
+    max-width: 40rem;
+  `}
   ${media.phablet`
     max-width: 100%;
     margin-top: 95vw;

@@ -8,6 +8,7 @@ import Link from 'next/link'
 import { gsap } from 'gsap'
 import styled, { css } from 'styled-components'
 import { useIsTouchDevice } from 'hooks'
+import { media } from 'styles'
 
 const ButtonWrapper = styled.div`
   position: relative;
@@ -15,14 +16,20 @@ const ButtonWrapper = styled.div`
 
 const ButtonStyle = css`
   font-family: var(--font-text);
-  font-size: 18px;
+  font-size: 1.3vw;
   font-weight: 500;
   line-height: 1;
   text-decoration: none;
-  padding: 0.75rem 2rem;
+  padding: 0.75vw 2vw;
   background-color: var(--orange);
   color: var(--white);
-  border-radius: 35px;
+  border-radius: 35vw;
+
+  ${media.desktop`
+    font-size: 18px;
+    padding: 0.75rem 2rem;
+    border-radius: 35px;
+  `}
 
   &:disabled {
     background-color: var(--black);

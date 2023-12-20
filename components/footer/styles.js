@@ -6,7 +6,9 @@ export const FooterWrapper = styled.footer`
   width: 100%;
   overflow: hidden;
   background-color: var(--blue);
-  border-top: 10px solid var(--orange);
+  border-top: 0.75vw solid var(--orange);
+
+  ${media.desktop`border-top: 10px solid var(--orange);`}
 `
 export const ContentWrapper = styled.div`
   position: relative;
@@ -21,14 +23,18 @@ export const ContentWrapper = styled.div`
 `
 export const ButtonWrapper = styled.div`
   position: relative;
-  margin-top: 10rem;
+  margin-top: 10vw;
+
+  ${media.desktop`margin-top: 10rem;`}
 `
 export const LineWrapper = styled.div`
   position: absolute;
-  padding-bottom: 2rem;
+  padding-bottom: 2vw;
   width: 100%;
   bottom: 0;
   z-index: ${Z.PAGE_HEADER};
+
+  ${media.desktop`padding-bottom: 2rem;`}
 
   p {
     padding-bottom: 0.2rem;

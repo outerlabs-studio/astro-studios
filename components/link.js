@@ -8,19 +8,22 @@ import Link from 'next/link'
 import styled from 'styled-components'
 import { gsap } from 'gsap'
 import { useIsomorphicLayoutEffect } from 'react-use'
+import { media } from 'styles'
 
 const StyledLink = styled.a`
   font-family: var(--font-text);
   display: inline-flex;
   flex-direction: column;
-  font-size: 18px;
+  font-size: 1.3vw;
   font-weight: 500;
-  line-height: 130%;
+  line-height: 1.3;
   text-decoration: none;
   color: ${(props) => props.color || 'var(--black)'};
   cursor: pointer;
   position: relative;
   overflow: hidden;
+
+  ${media.desktop`font-size: 18px;`}
 `
 const StyledSpan = styled.div`
   position: absolute;

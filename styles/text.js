@@ -48,10 +48,12 @@ export const TitleSubtile = styled.h2`
 `
 export const ArticleSubtitle = styled.h3`
   font-family: var(--font-text);
-  font-size: 20px; // 20px
+  font-size: 1.5vw;
   font-weight: 700;
-  line-height: 118%;
+  line-height: 1.2;
   margin: ${({ nm, m }) => (nm ? 0 : m ? m : 'unset')};
+
+  ${media.desktop`font-size: 24px;`}
 
   span {
     color: var(--orange);
@@ -59,11 +61,15 @@ export const ArticleSubtitle = styled.h3`
 `
 export const ArticleBase = styled.p`
   font-family: var(--font-text);
-  font-size: 18px;
+  font-size: 1.3vw;
   font-weight: 400;
-  line-height: 130%;
+  line-height: 1.3;
   margin: ${({ nm, m }) => (nm ? 0 : m ? m : 'unset')};
+
+  ${media.desktop`font-size: 18px;`}
 `
 export const ArticleBody = styled(ArticleBase)`
-  font-size: 16px;
+  font-size: 1.2vw;
+
+  ${media.desktop`font-size: 16px;`}
 `

@@ -76,7 +76,7 @@ const InfoSection = ({ data }) => {
                 </TitleSubheader>
                 <InformationWrapper>
                   <ArticleSubtitle
-                    m={'0 0 2rem 0'}
+                    m={'0 0 2vmax 0'}
                     ref={(el) => (itemsRef.current[currentIndex + 1] = el)}
                     dangerouslySetInnerHTML={{
                       __html: item.subtitle.replace(/\n/g, '<br/>'),

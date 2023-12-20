@@ -29,6 +29,7 @@ export const MainLogo = styled(Container)`
   margin-top: calc((3vw + 3vw) / 2);
   z-index: ${Z.LOGO};
   overflow: hidden;
+  z-index: ${(props) => (props.$isLink ? Z.PAGE_HEADER : Z.LOGO)};
 
   #logo {
     opacity: 0; // reset for initial page loads
@@ -50,10 +51,20 @@ export const NavLinks = styled.ul`
   }
 
   li:last-child {
-    margin-left: 16px;
+    margin-left: 1.5vw;
+
+    ${media.desktop`margin-left: 16px;`}
     ${media.tiny`display: none;`};
   }
 `
 export const LetterWrapper = styled.div`
   display: inline-block;
+`
+export const LogoLink = styled.a`
+  position: relative;
+  font-family: inherit;
+  color: inherit;
+  font-size: inherit;
+  text-decoration: none;
+  cursor: ${(props) => (props.$isLink ? 'pointer' : 'default')};
 `

@@ -10,7 +10,7 @@ import {
   CustomContainer,
   ButtonWrapper,
 } from './styles'
-import { useIsomorphicLayoutEffect, useMedia } from 'react-use'
+import { useIsomorphicLayoutEffect, useWindowSize } from 'react-use'
 import gsap from 'gsap'
 import StarIcon from 'components/star'
 import CustomButton from 'components/button'
@@ -21,14 +21,13 @@ const ContactSection = ({ data }) => {
   let ferrisWheelRef = useRef(null)
   let itemRef = useRef([])
   let animRow = useRef([])
-
-  const huge = useMedia(`(min-width: 1700px)`) || false // custom size
-  const desktop = useMedia(`(max-width: ${sizes.desktop}px)`) || false
-  const tablet = useMedia(`(max-width: ${sizes.tablet}px)`) || false
+  const { width } = useWindowSize()
 
   useIsomorphicLayoutEffect(() => {
     let ctx = gsap.context(() => {
-      let radius = huge ? 450 : tablet ? 200 : desktop ? 280 : 360
+      console.log(width)
+      let radius =
+        width > sizes.phablet ? (30 * width) / 100 : (25 * width) / 100
 
       let tl = gsap.timeline({
         scrollTrigger: {
@@ -74,7 +73,7 @@ const ContactSection = ({ data }) => {
     })
 
     return () => ctx.revert()
-  }, [huge, desktop, tablet])
+  }, [width])
 
   useIsomorphicLayoutEffect(() => {
     let ctx = gsap.context(() => {

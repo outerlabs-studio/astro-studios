@@ -1,10 +1,11 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import CustomButton from 'components/button'
 import CustomLink from 'components/link'
 import gsap from 'gsap'
-import { Container, Logo, sizes } from 'styles'
+import { Container, Logo, OverflowWrapper, sizes } from 'styles'
 import {
   LetterWrapper,
+  LogoLink,
   LogoWrapper,
   MainLogo,
   NavLinks,
@@ -17,16 +18,19 @@ import {
   useStartTyping,
   useWindowSize,
 } from 'react-use'
+import { useLenis } from '@studio-freight/react-lenis'
 
 const Nav = ({ logo }) => {
   let sectionRef = useRef(null)
   let logoRef = useRef(null)
   let fontRef = useRef(null)
-  let linksRef = useRef(null)
+  let linksRef = useRef([])
   let letterRef = useRef([])
+  const [finishedScroll, setFinishedScroll] = useState(false)
 
   const root = useRef()
   const { width } = useWindowSize()
+  const lenis = useLenis()
 
   const isMobile = useMedia(`(min-width: ${sizes.tiny})px`) || false
 
@@ -45,24 +49,32 @@ const Nav = ({ logo }) => {
           yPercent: 100,
           duration: 1,
           stagger: 0.03,
-          delay: 0.5,
           ease: 'power3.inOut',
-        },
-        0
-      ).from(
-        linksRef.querySelectorAll('li'),
-        {
-          opacity: 0,
-          ease: 'power3.inOut',
-          stagger: 0.05,
-          delay: 0.5,
         },
         0
       )
+        .from(
+          linksRef.current[0],
+          {
+            yPercent: 100,
+            ease: 'power3.inOut',
+            duration: 1,
+          },
+          0.3
+        )
+        .from(
+          linksRef.current[1],
+          {
+            scale: 0,
+            ease: 'power3.inOut',
+            duration: 0.5,
+          },
+          0.6
+        )
     })
 
     return () => ctx.revert()
-  }, [])
+  }, [width])
 
   useIsomorphicLayoutEffect(() => {
     let ctx = gsap.context(() => {
@@ -79,7 +91,9 @@ const Nav = ({ logo }) => {
       tl.to(logoRef, { top: '0%', left: '0%', transform: 'unset' }, 0).to(
         fontRef,
         {
-          fontSize: '24px',
+          fontSize: width > sizes.desktop ? '1.8vw' : '24px',
+          onComplete: () => setFinishedScroll(true),
+          onReverseComplete: () => setFinishedScroll(false),
         },
         0
       )
@@ -94,18 +108,20 @@ const Nav = ({ logo }) => {
         <Container>
           <NavWrapper>
             <div />
-            <NavLinks ref={(el) => (linksRef = el)}>
-              <li>
-                <CustomLink
-                  id="nav-link"
-                  href="#about"
-                  className="about"
-                  target="_self"
-                >
-                  About
-                </CustomLink>
-              </li>
-              <li>
+            <NavLinks>
+              <OverflowWrapper>
+                <li ref={(el) => linksRef.current.push(el)}>
+                  <CustomLink
+                    id="nav-link"
+                    href="#about"
+                    className="about"
+                    target="_self"
+                  >
+                    About
+                  </CustomLink>
+                </li>
+              </OverflowWrapper>
+              <li ref={(el) => linksRef.current.push(el)}>
                 <CustomButton href="#contact">Contact</CustomButton>
               </li>
             </NavLinks>
@@ -113,13 +129,26 @@ const Nav = ({ logo }) => {
         </Container>
       </PageHeader>
 
-      <MainLogo ref={(el) => (logoRef = el)}>
+      <MainLogo $isLink={finishedScroll} ref={(el) => (logoRef = el)}>
         <Logo ref={(el) => (fontRef = el)} id="logo">
-          {logo.split('').map((letter, index) => (
-            <LetterWrapper key={index}>
-              {letter === ' ' ? '\u00A0' : letter}
-            </LetterWrapper>
-          ))}
+          <LogoLink
+            $isLink={finishedScroll}
+            href={finishedScroll ? '/' : undefined}
+            aria-disabled={!finishedScroll}
+            onClick={(e) => {
+              e.preventDefault()
+              if (finishedScroll) {
+                setFinishedScroll(false)
+                lenis.scrollTo(0)
+              }
+            }}
+          >
+            {logo.split('').map((letter, index) => (
+              <LetterWrapper key={index}>
+                {letter === ' ' ? '\u00A0' : letter}
+              </LetterWrapper>
+            ))}
+          </LogoLink>
         </Logo>
       </MainLogo>
     </>
